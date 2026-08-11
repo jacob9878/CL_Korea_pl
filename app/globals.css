@@ -2,25 +2,115 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+
+  /* brand palette (CL Korea red) */
+  --color-brand: #e8341a;
+  --color-brand-hover: #c9280f;
+  --color-brand-light: #fef2f0;
+
+  /* Phase I signup palette (violet primary + orange accent) */
+  --color-vbrand: #5b5bef;
+  --color-vbrand-2: #8a63f4;
+  --color-vbrand-hover: #4a4ad8;
+  --color-vbrand-soft: #eef0ff;
+  --color-vaccent: #f59042;
+  --color-vok: #12b76a;
+  --color-vink: #141726;
+  --color-vmuted: #6b7280;
+  --color-vline: #e6e8f0;
+  --color-vbg: #f7f8fc;
+
+  --animate-fade-up: fade-up 0.55s ease both;
+  --animate-fade-in: fade-in 0.7s ease both;
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-brand-ping: brand-ping 1.4s ease-out infinite;
+  --animate-dot1: dot-pulse 1.2s ease infinite;
+  --animate-dot2: dot-pulse 1.2s ease infinite 0.15s;
+  --animate-dot3: dot-pulse 1.2s ease infinite 0.3s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes brand-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes dot-pulse {
+  0%,
+  20% {
+    opacity: 0.3;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* scroll-reveal helper (used by component/landing/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
