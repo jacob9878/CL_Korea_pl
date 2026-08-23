@@ -4,7 +4,6 @@ const NAV_LINKS = [
   { href: "/", label: "서비스 소개" },
   { href: "/#how", label: "매칭 방법" },
   { href: "/announcements", label: "사업 공고", active: true },
-  { href: "/pricing", label: "가격 정책" },
   { href: "/contact", label: "문의하기" },
   { href: "/about", label: "회사 소개" },
 ];
@@ -37,12 +36,6 @@ export default function Nav() {
           className="px-3.5 py-1.5 text-[13.5px] font-semibold text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
         >
           로그인
-        </Link>
-        <Link
-          href="/signup"
-          className="px-4 py-1.5 text-[13.5px] font-semibold text-white bg-brand rounded-lg hover:bg-brand-hover transition-colors"
-        >
-          무료로 시작하기
         </Link>
       </div>
     </nav>

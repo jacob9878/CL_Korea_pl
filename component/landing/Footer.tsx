@@ -8,7 +8,6 @@ const FOOTER_COLS = [
     links: [
       { label: "소개", href: "/about" },
       { label: "성공 사례", href: "#" },
-      { label: "가격 정책", href: "/pricing" },
       { label: "블로그", href: "#" },
       { label: "채용", href: "#" },
     ],

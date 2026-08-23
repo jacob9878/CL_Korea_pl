@@ -37,13 +37,7 @@ export default function Hero() {
             onClick={openLogin}
             className="px-6 py-3 text-[15px] font-bold text-white bg-brand rounded-[10px] cursor-pointer hover:bg-brand-hover hover:shadow-[0_4px_14px_rgba(232,52,26,.35)] transition-all"
           >
-            무료로 시작하기 →
-          </button>
-          <button
-            onClick={openLogin}
-            className="px-6 py-3 text-[15px] font-semibold text-gray-700 bg-white border-[1.5px] border-gray-200 rounded-[10px] cursor-pointer hover:border-gray-400 hover:bg-gray-50 transition-all"
-          >
-            데모로 체험하기
+            데모로 체험하기 →
           </button>
         </div>
 

@@ -16,13 +16,13 @@ export default function Hero({ onLoginClick }: { onLoginClick: () => void }) {
           onClick={onLoginClick}
           className="px-7 py-3.25 text-[15px] font-bold text-white bg-brand rounded-[10px] cursor-pointer hover:bg-brand-hover transition-colors"
         >
-          무료로 시작하기
+          데모 체험하기
         </button>
         <a
           href="/contact"
           className="px-7 py-3.25 text-[15px] font-bold text-gray-700 bg-white border border-gray-200 rounded-[10px] hover:bg-gray-50 transition-colors"
         >
-          데모 신청
+          문의하기
         </a>
       </div>
     </section>
