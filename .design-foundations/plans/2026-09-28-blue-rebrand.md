@@ -1,6 +1,6 @@
 # Plan: rndmatching Red-to-Blue Rebrand
 **Date:** 2026-09-28 · **Status:** in-progress · **Track:** Standard
-**Started:** 2026-09-28 · **Current Phase:** 1
+**Started:** 2026-09-28 · **Current Phase:** 2
 **Workspace:** worktree `.claude/worktrees/blue-rebrand` on branch `feature/blue-rebrand`
 **Seed:** `.design-foundations/research/2026-09-28-blue-rebrand.md`
 **Entry stage:** Discover (minimal — page-spec inventory of the already-shipped structure, no redesign), then Design — DNA. Full Discover (JTBD/journey mapping) is not run: IA/flows/page structure are unchanged, this is a color-only identity update.
@@ -164,3 +164,12 @@ Phase 1 and Phase 2 both depend only on the research doc and can run independent
 - Reclassified `vaccent` (orange) from "functional" to "decorative" after finding its only uses are bullet markers/bars, not status — it folds into the blue ramp instead of staying a second accent hue
 - Added `data-viz` doctrine to Phase 3, scoped narrowly to `Leadership.tsx`'s categorical chart — its blue category can't be allowed to collide with the new brand-blue system
 - `LogoStrip.tsx`'s blue is a third party's (NTIS) source color, not rndmatching's brand — kept as an explicit logged exception rather than folded into the token system
+
+## Execution log
+
+### Phase 1: 페이지 스펙 인벤토리 (Gate: Minimal)
+- [x] BUILD: Minimal — produced directly, no discovery pass
+- [x] REVIEW: SKIPPED — Minimal gate (design execution evidence is the gate)
+- [x] Committed
+Commit: a32ecaa
+Summary: JOURNEY.md written with `## Page specs` entries for all 8 surface groups (landing, about, pricing, contact, announcements, admin, shared, signup), documenting current structure as-is — no IA/flow changes.
