@@ -34,18 +34,34 @@ export default function LoginPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function oauth(provider: "google" | "kakao") {
+  async function oauthGoogle() {
     setError("");
     const supabase = createClient();
     const { error: err } = await supabase.auth.signInWithOAuth({
-      provider,
+      provider: "google",
       options: {
         redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
       },
     });
     if (err) setError(err.message);
-    // On success the browser navigates away to the provider, then back
-    // through /auth/callback -- nothing more to do here.
+    // On success the browser navigates away to Google, then back through
+    // /auth/callback -- nothing more to do here.
+  }
+
+  function oauthKakao() {
+    setError("");
+    // Bypasses supabase.auth.signInWithOAuth: Supabase hardcodes the
+    // account_email scope for Kakao, which non-Biz-app REST API keys can't
+    // grant (KOE205). We drive the OIDC redirect ourselves instead, via
+    // app/auth/kakao/callback/route.ts -- see the comment there.
+    const redirectUri = `${window.location.origin}/auth/kakao/callback`;
+    const url = new URL("https://kauth.kakao.com/oauth/authorize");
+    url.searchParams.set("client_id", process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID!);
+    url.searchParams.set("redirect_uri", redirectUri);
+    url.searchParams.set("response_type", "code");
+    url.searchParams.set("scope", "openid profile_nickname");
+    url.searchParams.set("state", next);
+    window.location.href = url.toString();
   }
 
   async function sendCode() {
@@ -91,13 +107,13 @@ export default function LoginPage() {
         </div>
 
         <button
-          onClick={() => oauth("google")}
+          onClick={oauthGoogle}
           className="w-full flex items-center justify-center gap-2.5 px-5 py-3 rounded-[10px] font-semibold text-[14px] text-gray-700 border border-gray-200 bg-white hover:bg-gray-50 transition-colors cursor-pointer mb-2.5"
         >
           <GoogleLogo /> Google로 계속하기
         </button>
         <button
-          onClick={() => oauth("kakao")}
+          onClick={oauthKakao}
           className="w-full flex items-center justify-center gap-2.5 px-5 py-3 rounded-[10px] font-bold text-[14px] text-[#191919] bg-[#FEE500] hover:brightness-95 transition-[filter] cursor-pointer mb-5"
         >
           <KakaoLogo /> 카카오로 계속하기
