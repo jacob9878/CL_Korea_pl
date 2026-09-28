@@ -32,6 +32,20 @@ export default function EmailVerifyGate({ onVerified }: { onVerified: (email: st
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  async function signInWithKakao() {
+    setError("");
+    const supabase = createClient();
+    const { error: err } = await supabase.auth.signInWithOAuth({
+      provider: "kakao",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(window.location.pathname)}`,
+      },
+    });
+    if (err) setError(err.message);
+    // On success the browser navigates away to Kakao, then back through
+    // /auth/callback -- there's nothing more to do here.
+  }
+
   async function sendCode() {
     if (!email.trim()) return setError("이메일을 입력해 주세요.");
     setError("");
@@ -79,21 +93,34 @@ export default function EmailVerifyGate({ onVerified }: { onVerified: (email: st
       </div>
 
       {stage === "email" && (
-        <div className="flex flex-col sm:flex-row gap-2.5">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="name@org.com"
-            className={INPUT}
-          />
+        <div>
           <button
-            onClick={sendCode}
-            disabled={busy}
-            className="px-5 py-2.75 rounded-[10px] font-bold text-white bg-brand-600 hover:bg-brand-700 disabled:opacity-50 cursor-pointer whitespace-nowrap"
+            onClick={signInWithKakao}
+            className="w-full flex items-center justify-center gap-2 px-5 py-2.75 rounded-[10px] font-bold text-[#191919] bg-[#FEE500] hover:brightness-95 cursor-pointer mb-3.5"
           >
-            {busy ? "전송 중..." : "인증코드 받기"}
+            <span>💬</span> 카카오로 시작하기
           </button>
+          <div className="flex items-center gap-3 text-[11.5px] text-gray-400 mb-3.5">
+            <div className="flex-1 h-px bg-gray-200" />
+            또는 이메일로 인증
+            <div className="flex-1 h-px bg-gray-200" />
+          </div>
+          <div className="flex flex-col sm:flex-row gap-2.5">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="name@org.com"
+              className={INPUT}
+            />
+            <button
+              onClick={sendCode}
+              disabled={busy}
+              className="px-5 py-2.75 rounded-[10px] font-bold text-white bg-brand-600 hover:bg-brand-700 disabled:opacity-50 cursor-pointer whitespace-nowrap"
+            >
+              {busy ? "전송 중..." : "인증코드 받기"}
+            </button>
+          </div>
         </div>
       )}
 
