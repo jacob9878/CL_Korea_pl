@@ -8,7 +8,7 @@ import TaxonomyPicker, { type TaxonomyPick } from "./TaxonomyPicker";
 import FileUpload from "./FileUpload";
 import ConsentSection, { type ConsentItem } from "./ConsentSection";
 import PerksSidebar from "./PerksSidebar";
-import EmailVerifyGate from "./EmailVerifyGate";
+import AuthGate from "./AuthGate";
 import { createClient } from "@/lib/supabase/client";
 
 const INPUT =
@@ -83,12 +83,13 @@ export default function IndividualSignupPage() {
   const [consent, setConsent] = useState<Record<string, boolean>>({});
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [authed, setAuthed] = useState(false);
   const [verifiedEmail, setVerifiedEmail] = useState<string | null>(null);
   const [introFile, setIntroFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
   async function submit() {
-    if (!verifiedEmail) return setError("이메일 본인인증을 먼저 완료해 주세요.");
+    if (!authed) return setError("로그인을 먼저 완료해 주세요.");
     if (!companyName.trim() || !bizNum.trim()) return setError("기업명과 사업자등록번호를 입력해 주세요.");
     if (!managerName.trim() || !email.trim() || !phone.trim())
       return setError("담당자 정보를 모두 입력해 주세요.");
@@ -122,7 +123,7 @@ export default function IndividualSignupPage() {
       p_focus_field: focusField,
       p_manager_name: managerName.trim(),
       p_manager_title: managerTitle.trim() || undefined,
-      p_email: verifiedEmail,
+      p_email: verifiedEmail ?? email.trim(),
       p_phone: phone.trim(),
       p_keywords: keywords.trim() || undefined,
       p_intro_doc_path: introDocPath ?? undefined,
@@ -185,10 +186,11 @@ export default function IndividualSignupPage() {
           <PhaseSteps steps={["기본·소속 정보", "전문분야 (3개)", "자료·동의"]} />
 
           <div className="p-7">
-            <EmailVerifyGate
-              onVerified={(verified) => {
-                setVerifiedEmail(verified);
-                setEmail(verified);
+            <AuthGate
+              onVerified={(info) => {
+                setAuthed(true);
+                setVerifiedEmail(info.email);
+                if (info.email) setEmail(info.email);
               }}
             />
 

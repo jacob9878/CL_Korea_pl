@@ -7,7 +7,7 @@ import PhaseSteps from "./PhaseSteps";
 import TaxonomyPicker, { type TaxonomyPick } from "./TaxonomyPicker";
 import AddressField from "./AddressField";
 import ConsentSection, { type ConsentItem } from "./ConsentSection";
-import EmailVerifyGate from "./EmailVerifyGate";
+import AuthGate from "./AuthGate";
 import { createClient } from "@/lib/supabase/client";
 
 const INPUT =
@@ -105,11 +105,12 @@ export default function ExpertSignupPage() {
   const [consent, setConsent] = useState<Record<string, boolean>>({});
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [authed, setAuthed] = useState(false);
   const [verifiedEmail, setVerifiedEmail] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
   async function submit() {
-    if (!verifiedEmail) return setError("이메일 본인인증을 먼저 완료해 주세요.");
+    if (!authed) return setError("로그인을 먼저 완료해 주세요.");
     if (!name.trim() || !email.trim() || !phone.trim()) return setError("성명·이메일·휴대폰을 입력해 주세요.");
     if (!org.trim() || !dept.trim()) return setError("소속기관과 부서/직위를 입력해 주세요.");
     if (picks.length < 3) return setError(`전문분야를 3개 모두 선택해 주세요. (현재 ${picks.length}개)`);
@@ -125,7 +126,7 @@ export default function ExpertSignupPage() {
       .insert({
         name: name.trim(),
         birth: birth || null,
-        email: verifiedEmail,
+        email: verifiedEmail ?? email.trim(),
         phone: phone.trim(),
         org_name: org.trim(),
         dept: dept.trim(),
@@ -206,10 +207,11 @@ export default function ExpertSignupPage() {
           <PhaseSteps steps={["기본·소속 정보", "전문분야 (3개)", "경력·동의"]} />
 
           <div className="p-7">
-            <EmailVerifyGate
-              onVerified={(verified) => {
-                setVerifiedEmail(verified);
-                setEmail(verified);
+            <AuthGate
+              onVerified={(info) => {
+                setAuthed(true);
+                setVerifiedEmail(info.email);
+                if (info.email) setEmail(info.email);
               }}
             />
 
