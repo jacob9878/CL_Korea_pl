@@ -163,7 +163,7 @@ export default function HeroMockup() {
           </div>
         </div>
 
-        <div className="grid grid-cols-[180px_1fr] min-h-[480px]">
+        <div className="grid grid-cols-[180px_minmax(0,1fr)] min-h-[480px]">
           {/* sidebar */}
           <div className="bg-gray-50 border-r border-gray-200 p-2.5 flex flex-col gap-0.5">
             <div className="text-[11px] font-extrabold text-gray-900 px-2 pb-3 pt-1">
@@ -188,7 +188,7 @@ export default function HeroMockup() {
             {scene === "search" && (
               <div>
                 <div className="text-[11px] font-extrabold text-gray-900 mb-2.5">파트너 검색</div>
-                <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-[11px] text-gray-500 mb-3">
+                <div className="w-full min-w-0 flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-[11px] text-gray-500 mb-3">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2.5">
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.35-4.35" />
