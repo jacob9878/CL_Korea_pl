@@ -18,36 +18,232 @@ export type Database = {
         Row: {
           action: Database["public"]["Enums"]["audit_action"]
           actor: string
+          application_id: number
           created_at: string
           id: number
           note: string | null
-          verification_id: number
         }
         Insert: {
           action: Database["public"]["Enums"]["audit_action"]
           actor: string
+          application_id: number
           created_at?: string
           id?: never
           note?: string | null
-          verification_id: number
         }
         Update: {
           action?: Database["public"]["Enums"]["audit_action"]
           actor?: string
+          application_id?: number
           created_at?: string
           id?: never
           note?: string | null
-          verification_id?: number
         }
         Relationships: [
           {
-            foreignKeyName: "audit_log_verification_id_fkey"
-            columns: ["verification_id"]
+            foreignKeyName: "audit_log_application_id_fkey"
+            columns: ["application_id"]
             isOneToOne: false
-            referencedRelation: "verifications"
+            referencedRelation: "expert_applications"
             referencedColumns: ["id"]
           },
         ]
+      }
+      expert_application_taxonomy_picks: {
+        Row: {
+          application_id: number
+          id: number
+          key: string
+          leaf: string
+          trail: string
+        }
+        Insert: {
+          application_id: number
+          id?: never
+          key: string
+          leaf: string
+          trail: string
+        }
+        Update: {
+          application_id?: number
+          id?: never
+          key?: string
+          leaf?: string
+          trail?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "expert_application_taxonomy_picks_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "expert_applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      expert_applications: {
+        Row: {
+          address_addr1: string | null
+          address_addr2: string | null
+          address_zip: string | null
+          birth: string | null
+          consents: Json
+          created_at: string
+          credentials: string | null
+          degree: string
+          dept: string
+          email: string
+          granted_role: Database["public"]["Enums"]["app_role"] | null
+          id: number
+          major: string | null
+          name: string
+          org_name: string
+          phone: string
+          reject_reason: string | null
+          requested_at: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: Database["public"]["Enums"]["verification_status"]
+          updated_at: string
+          user_id: string
+          years: number
+        }
+        Insert: {
+          address_addr1?: string | null
+          address_addr2?: string | null
+          address_zip?: string | null
+          birth?: string | null
+          consents?: Json
+          created_at?: string
+          credentials?: string | null
+          degree: string
+          dept: string
+          email: string
+          granted_role?: Database["public"]["Enums"]["app_role"] | null
+          id?: never
+          major?: string | null
+          name: string
+          org_name: string
+          phone: string
+          reject_reason?: string | null
+          requested_at?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: Database["public"]["Enums"]["verification_status"]
+          updated_at?: string
+          user_id?: string
+          years: number
+        }
+        Update: {
+          address_addr1?: string | null
+          address_addr2?: string | null
+          address_zip?: string | null
+          birth?: string | null
+          consents?: Json
+          created_at?: string
+          credentials?: string | null
+          degree?: string
+          dept?: string
+          email?: string
+          granted_role?: Database["public"]["Enums"]["app_role"] | null
+          id?: never
+          major?: string | null
+          name?: string
+          org_name?: string
+          phone?: string
+          reject_reason?: string | null
+          requested_at?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: Database["public"]["Enums"]["verification_status"]
+          updated_at?: string
+          user_id?: string
+          years?: number
+        }
+        Relationships: []
+      }
+      individual_signup_taxonomy_picks: {
+        Row: {
+          id: number
+          key: string
+          leaf: string
+          signup_id: number
+          trail: string
+        }
+        Insert: {
+          id?: never
+          key: string
+          leaf: string
+          signup_id: number
+          trail: string
+        }
+        Update: {
+          id?: never
+          key?: string
+          leaf?: string
+          signup_id?: number
+          trail?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "individual_signup_taxonomy_picks_signup_id_fkey"
+            columns: ["signup_id"]
+            isOneToOne: false
+            referencedRelation: "individual_signups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      individual_signups: {
+        Row: {
+          biz_num: string
+          company_name: string
+          consents: Json
+          created_at: string
+          email: string
+          focus_field: string
+          id: number
+          intro_doc_path: string | null
+          keywords: string | null
+          manager_name: string
+          manager_title: string | null
+          org_type: string
+          phone: string
+          user_id: string
+        }
+        Insert: {
+          biz_num: string
+          company_name: string
+          consents?: Json
+          created_at?: string
+          email: string
+          focus_field: string
+          id?: never
+          intro_doc_path?: string | null
+          keywords?: string | null
+          manager_name: string
+          manager_title?: string | null
+          org_type: string
+          phone: string
+          user_id?: string
+        }
+        Update: {
+          biz_num?: string
+          company_name?: string
+          consents?: Json
+          created_at?: string
+          email?: string
+          focus_field?: string
+          id?: never
+          intro_doc_path?: string | null
+          keywords?: string | null
+          manager_name?: string
+          manager_title?: string | null
+          org_type?: string
+          phone?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       profiles: {
         Row: {
@@ -85,154 +281,35 @@ export type Database = {
         }
         Relationships: []
       }
-      verification_documents: {
-        Row: {
-          created_at: string
-          doc_type: string
-          id: number
-          storage_path: string
-          verification_id: number
-        }
-        Insert: {
-          created_at?: string
-          doc_type: string
-          id?: never
-          storage_path: string
-          verification_id: number
-        }
-        Update: {
-          created_at?: string
-          doc_type?: string
-          id?: never
-          storage_path?: string
-          verification_id?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "verification_documents_verification_id_fkey"
-            columns: ["verification_id"]
-            isOneToOne: false
-            referencedRelation: "verifications"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      verifications: {
-        Row: {
-          biz_date: string | null
-          biz_num: string | null
-          ceo_name: string | null
-          created_at: string
-          dept: string | null
-          domain_email: string | null
-          email: string
-          first_member: boolean
-          granted_role: Database["public"]["Enums"]["app_role"] | null
-          homepage: string | null
-          id: number
-          kind: Database["public"]["Enums"]["verification_kind"]
-          method: string
-          name: string
-          nts_status: string | null
-          org_name: string
-          org_type: string
-          position: string
-          reject_reason: string | null
-          requested_at: string
-          reviewed_at: string | null
-          reviewed_by: string | null
-          status: Database["public"]["Enums"]["verification_status"]
-          updated_at: string
-          user_id: string
-        }
-        Insert: {
-          biz_date?: string | null
-          biz_num?: string | null
-          ceo_name?: string | null
-          created_at?: string
-          dept?: string | null
-          domain_email?: string | null
-          email: string
-          first_member?: boolean
-          granted_role?: Database["public"]["Enums"]["app_role"] | null
-          homepage?: string | null
-          id?: never
-          kind: Database["public"]["Enums"]["verification_kind"]
-          method: string
-          name: string
-          nts_status?: string | null
-          org_name: string
-          org_type: string
-          position: string
-          reject_reason?: string | null
-          requested_at?: string
-          reviewed_at?: string | null
-          reviewed_by?: string | null
-          status?: Database["public"]["Enums"]["verification_status"]
-          updated_at?: string
-          user_id: string
-        }
-        Update: {
-          biz_date?: string | null
-          biz_num?: string | null
-          ceo_name?: string | null
-          created_at?: string
-          dept?: string | null
-          domain_email?: string | null
-          email?: string
-          first_member?: boolean
-          granted_role?: Database["public"]["Enums"]["app_role"] | null
-          homepage?: string | null
-          id?: never
-          kind?: Database["public"]["Enums"]["verification_kind"]
-          method?: string
-          name?: string
-          nts_status?: string | null
-          org_name?: string
-          org_type?: string
-          position?: string
-          reject_reason?: string | null
-          requested_at?: string
-          reviewed_at?: string | null
-          reviewed_by?: string | null
-          status?: Database["public"]["Enums"]["verification_status"]
-          updated_at?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
       is_admin: { Args: never; Returns: boolean }
-      resolve_verification: {
+      resolve_expert_application: {
         Args: {
+          p_application_id: number
           p_reason?: string
-          p_role?: Database["public"]["Enums"]["app_role"]
           p_status: Database["public"]["Enums"]["verification_status"]
-          p_verification_id: number
         }
         Returns: {
-          biz_date: string | null
-          biz_num: string | null
-          ceo_name: string | null
+          address_addr1: string | null
+          address_addr2: string | null
+          address_zip: string | null
+          birth: string | null
+          consents: Json
           created_at: string
-          dept: string | null
-          domain_email: string | null
+          credentials: string | null
+          degree: string
+          dept: string
           email: string
-          first_member: boolean
           granted_role: Database["public"]["Enums"]["app_role"] | null
-          homepage: string | null
           id: number
-          kind: Database["public"]["Enums"]["verification_kind"]
-          method: string
+          major: string | null
           name: string
-          nts_status: string | null
           org_name: string
-          org_type: string
-          position: string
+          phone: string
           reject_reason: string | null
           requested_at: string
           reviewed_at: string | null
@@ -240,17 +317,56 @@ export type Database = {
           status: Database["public"]["Enums"]["verification_status"]
           updated_at: string
           user_id: string
+          years: number
         }
         SetofOptions: {
           from: "*"
-          to: "verifications"
+          to: "expert_applications"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
+      submit_individual_signup: {
+        Args: {
+          p_biz_num: string
+          p_company_name: string
+          p_consents?: Json
+          p_email: string
+          p_focus_field: string
+          p_intro_doc_path?: string
+          p_keywords?: string
+          p_manager_name: string
+          p_manager_title?: string
+          p_org_type: string
+          p_phone: string
+          p_picks?: Json
+        }
+        Returns: {
+          biz_num: string
+          company_name: string
+          consents: Json
+          created_at: string
+          email: string
+          focus_field: string
+          id: number
+          intro_doc_path: string | null
+          keywords: string | null
+          manager_name: string
+          manager_title: string | null
+          org_type: string
+          phone: string
+          user_id: string
+        }
+        SetofOptions: {
+          from: "*"
+          to: "individual_signups"
           isOneToOne: true
           isSetofReturn: false
         }
       }
     }
     Enums: {
-      app_role: "VIEWER" | "GENERAL_MEMBER" | "MANAGER" | "ADMIN"
+      app_role: "VIEWER" | "GENERAL_MEMBER" | "MANAGER" | "ADMIN" | "EXPERT"
       audit_action: "APPROVE" | "REJECT"
       verification_kind: "company" | "university" | "research"
       verification_status: "PENDING" | "APPROVED" | "REJECTED"
@@ -381,7 +497,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["VIEWER", "GENERAL_MEMBER", "MANAGER", "ADMIN"],
+      app_role: ["VIEWER", "GENERAL_MEMBER", "MANAGER", "ADMIN", "EXPERT"],
       audit_action: ["APPROVE", "REJECT"],
       verification_kind: ["company", "university", "research"],
       verification_status: ["PENDING", "APPROVED", "REJECTED"],

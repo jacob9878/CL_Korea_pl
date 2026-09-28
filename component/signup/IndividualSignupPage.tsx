@@ -8,6 +8,8 @@ import TaxonomyPicker, { type TaxonomyPick } from "./TaxonomyPicker";
 import FileUpload from "./FileUpload";
 import ConsentSection, { type ConsentItem } from "./ConsentSection";
 import PerksSidebar from "./PerksSidebar";
+import EmailVerifyGate from "./EmailVerifyGate";
+import { createClient } from "@/lib/supabase/client";
 
 const INPUT =
   "w-full font-sans text-[14.5px] px-3.25 py-2.75 border border-gray-200 rounded-[10px] bg-[#fbfbfe] text-gray-900 outline-none transition-colors focus:border-brand-600 focus:bg-white focus:shadow-[0_0_0_3px_var(--color-brand-100)]";
@@ -81,14 +83,56 @@ export default function IndividualSignupPage() {
   const [consent, setConsent] = useState<Record<string, boolean>>({});
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [verifiedEmail, setVerifiedEmail] = useState<string | null>(null);
+  const [introFile, setIntroFile] = useState<File | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  function submit() {
+  async function submit() {
+    if (!verifiedEmail) return setError("이메일 본인인증을 먼저 완료해 주세요.");
     if (!companyName.trim() || !bizNum.trim()) return setError("기업명과 사업자등록번호를 입력해 주세요.");
     if (!managerName.trim() || !email.trim() || !phone.trim())
       return setError("담당자 정보를 모두 입력해 주세요.");
     if (picks.length < 1) return setError("전문분야·관심 기술분야를 1개 이상 선택해 주세요.");
     if (!consent.tos || !consent.privacy || !consent.age) return setError("필수 약관에 동의해 주세요.");
     setError("");
+    setSubmitting(true);
+
+    const supabase = createClient();
+    let introDocPath: string | null = null;
+
+    if (introFile) {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      const path = `${user!.id}/${Date.now()}-${introFile.name}`;
+      const { error: uploadError } = await supabase.storage
+        .from("individual-signup-docs")
+        .upload(path, introFile);
+      if (uploadError) {
+        setSubmitting(false);
+        return setError(`파일 업로드 중 오류가 발생했습니다: ${uploadError.message}`);
+      }
+      introDocPath = path;
+    }
+
+    const { error: rpcError } = await supabase.rpc("submit_individual_signup", {
+      p_company_name: companyName.trim(),
+      p_biz_num: bizNum.trim(),
+      p_org_type: orgType,
+      p_focus_field: focusField,
+      p_manager_name: managerName.trim(),
+      p_manager_title: managerTitle.trim() || undefined,
+      p_email: verifiedEmail,
+      p_phone: phone.trim(),
+      p_keywords: keywords.trim() || undefined,
+      p_intro_doc_path: introDocPath ?? undefined,
+      p_consents: consent,
+      p_picks: picks,
+    });
+
+    setSubmitting(false);
+    if (rpcError) return setError(`제출 중 오류가 발생했습니다: ${rpcError.message}`);
+
     setSubmitted(true);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -141,6 +185,13 @@ export default function IndividualSignupPage() {
           <PhaseSteps steps={["기본·소속 정보", "전문분야 (3개)", "자료·동의"]} />
 
           <div className="p-7">
+            <EmailVerifyGate
+              onVerified={(verified) => {
+                setVerifiedEmail(verified);
+                setEmail(verified);
+              }}
+            />
+
             <SectionTitle>기업 정보</SectionTitle>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="기업명" required>
@@ -178,7 +229,14 @@ export default function IndividualSignupPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="이메일" required>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@company.com" className={INPUT} />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@company.com"
+                  disabled={!!verifiedEmail}
+                  className={`${INPUT} ${verifiedEmail ? "opacity-60 cursor-not-allowed" : ""}`}
+                />
               </Field>
               <Field label="연락처" required>
                 <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="010-0000-0000" className={INPUT} />
@@ -213,7 +271,7 @@ export default function IndividualSignupPage() {
             <SectionTitle>기업 소개 자료 업로드</SectionTitle>
             <FileUpload
               hint="회사소개서 · 기업소개서 · 사업자등록증 (PDF, PPTX, ZIP · 최대 20MB)"
-              defaultFile={{ name: "씨엘코리아_회사소개서_2026.pdf", size: "4.2MB" }}
+              onFileChange={setIntroFile}
             />
             <div className="text-[12.5px] text-gray-500 mt-1.5">
               업로드 자료는 컨소시엄 매칭 시 파트너 기관 검토용으로 활용되며, 별도 동의 후 공개됩니다.
@@ -241,9 +299,10 @@ export default function IndividualSignupPage() {
             </span>
             <button
               onClick={submit}
-              className="px-6 py-3 rounded-[10px] font-bold text-white bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)] hover:-translate-y-px transition-transform cursor-pointer whitespace-nowrap"
+              disabled={submitting}
+              className="px-6 py-3 rounded-[10px] font-bold text-white bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)] hover:-translate-y-px transition-transform cursor-pointer whitespace-nowrap disabled:opacity-50 disabled:hover:translate-y-0"
             >
-              가입 완료하기 →
+              {submitting ? "처리 중..." : "가입 완료하기 →"}
             </button>
           </div>
         </main>

@@ -5,9 +5,11 @@ import { useRef, useState } from "react";
 export default function FileUpload({
   hint,
   defaultFile,
+  onFileChange,
 }: {
   hint: string;
   defaultFile?: { name: string; size: string };
+  onFileChange?: (file: File | null) => void;
 }) {
   const [file, setFile] = useState<{ name: string; size: string } | null>(defaultFile ?? null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -16,6 +18,7 @@ export default function FileUpload({
     if (!files || !files[0]) return;
     const f = files[0];
     setFile({ name: f.name, size: `${(f.size / (1024 * 1024)).toFixed(1)}MB` });
+    onFileChange?.(f);
   }
 
   return (
@@ -52,7 +55,10 @@ export default function FileUpload({
             <small className="text-gray-500">{file.size} · 검토 대기중</small>
           </div>
           <div
-            onClick={() => setFile(null)}
+            onClick={() => {
+              setFile(null);
+              onFileChange?.(null);
+            }}
             className="text-gray-500 cursor-pointer hover:text-gray-700"
           >
             ×

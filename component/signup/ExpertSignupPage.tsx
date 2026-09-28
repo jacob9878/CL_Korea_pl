@@ -7,6 +7,8 @@ import PhaseSteps from "./PhaseSteps";
 import TaxonomyPicker, { type TaxonomyPick } from "./TaxonomyPicker";
 import AddressField from "./AddressField";
 import ConsentSection, { type ConsentItem } from "./ConsentSection";
+import EmailVerifyGate from "./EmailVerifyGate";
+import { createClient } from "@/lib/supabase/client";
 
 const INPUT =
   "w-full font-sans text-[14.5px] px-3.25 py-2.75 border border-gray-200 rounded-[10px] bg-[#fbfbfe] text-gray-900 outline-none transition-colors focus:border-brand-600 focus:bg-white focus:shadow-[0_0_0_3px_var(--color-brand-100)]";
@@ -103,8 +105,11 @@ export default function ExpertSignupPage() {
   const [consent, setConsent] = useState<Record<string, boolean>>({});
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [verifiedEmail, setVerifiedEmail] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  function submit() {
+  async function submit() {
+    if (!verifiedEmail) return setError("이메일 본인인증을 먼저 완료해 주세요.");
     if (!name.trim() || !email.trim() || !phone.trim()) return setError("성명·이메일·휴대폰을 입력해 주세요.");
     if (!org.trim() || !dept.trim()) return setError("소속기관과 부서/직위를 입력해 주세요.");
     if (picks.length < 3) return setError(`전문분야를 3개 모두 선택해 주세요. (현재 ${picks.length}개)`);
@@ -112,6 +117,42 @@ export default function ExpertSignupPage() {
     const requiredIds = ["tos", "expert-code", "privacy", "third-party", "conflict", "age"];
     if (requiredIds.some((id) => !consent[id])) return setError("필수 약관에 모두 동의해 주세요.");
     setError("");
+    setSubmitting(true);
+
+    const supabase = createClient();
+    const { data: application, error: insertError } = await supabase
+      .from("expert_applications")
+      .insert({
+        name: name.trim(),
+        birth: birth || null,
+        email: verifiedEmail,
+        phone: phone.trim(),
+        org_name: org.trim(),
+        dept: dept.trim(),
+        address_zip: address.zip || null,
+        address_addr1: address.addr1 || null,
+        address_addr2: address.addr2 || null,
+        degree,
+        major: major.trim() || null,
+        years: parseInt(years, 10),
+        credentials: credentials.trim() || null,
+        consents: consent,
+      })
+      .select()
+      .single();
+
+    if (insertError || !application) {
+      setSubmitting(false);
+      return setError(`제출 중 오류가 발생했습니다: ${insertError?.message ?? "알 수 없는 오류"}`);
+    }
+
+    const { error: picksError } = await supabase.from("expert_application_taxonomy_picks").insert(
+      picks.map((p) => ({ application_id: application.id, key: p.key, leaf: p.leaf, trail: p.trail })),
+    );
+
+    setSubmitting(false);
+    if (picksError) return setError(`전문분야 저장 중 오류가 발생했습니다: ${picksError.message}`);
+
     setSubmitted(true);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -165,6 +206,13 @@ export default function ExpertSignupPage() {
           <PhaseSteps steps={["기본·소속 정보", "전문분야 (3개)", "경력·동의"]} />
 
           <div className="p-7">
+            <EmailVerifyGate
+              onVerified={(verified) => {
+                setVerifiedEmail(verified);
+                setEmail(verified);
+              }}
+            />
+
             <SectionTitle>기본 정보</SectionTitle>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="성명" required>
@@ -176,7 +224,13 @@ export default function ExpertSignupPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="이메일" required>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@org.re.kr" className={INPUT} />
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@org.re.kr"
+                  disabled={!!verifiedEmail}
+                  className={`${INPUT} ${verifiedEmail ? "opacity-60 cursor-not-allowed" : ""}`}
+                />
               </Field>
               <Field label="휴대폰" required>
                 <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="010-0000-0000" className={INPUT} />
@@ -253,9 +307,10 @@ export default function ExpertSignupPage() {
             </span>
             <button
               onClick={submit}
-              className="px-6 py-3 rounded-[10px] font-bold text-white bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)] hover:-translate-y-px transition-transform cursor-pointer whitespace-nowrap"
+              disabled={submitting}
+              className="px-6 py-3 rounded-[10px] font-bold text-white bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)] hover:-translate-y-px transition-transform cursor-pointer whitespace-nowrap disabled:opacity-50 disabled:hover:translate-y-0"
             >
-              전문가 등록 신청 →
+              {submitting ? "제출 중..." : "전문가 등록 신청 →"}
             </button>
           </div>
         </div>
