@@ -1,6 +1,6 @@
 # Plan: rndmatching Red-to-Blue Rebrand
-**Date:** 2026-09-28 · **Status:** in-progress · **Track:** Standard
-**Started:** 2026-09-28 · **Current Phase:** 3
+**Date:** 2026-09-28 · **Status:** complete · **Track:** Standard
+**Started:** 2026-09-28 · **Completed:** 2026-09-28 · **Duration:** 1 session
 **Workspace:** worktree `.claude/worktrees/blue-rebrand` on branch `feature/blue-rebrand`
 **Seed:** `.design-foundations/research/2026-09-28-blue-rebrand.md`
 **Entry stage:** Discover (minimal — page-spec inventory of the already-shipped structure, no redesign), then Design — DNA. Full Discover (JTBD/journey mapping) is not run: IA/flows/page structure are unchanged, this is a color-only identity update.
@@ -180,3 +180,10 @@ Summary: JOURNEY.md written with `## Page specs` entries for all 8 surface group
 - [x] Committed
 Commit: 74f8ca1
 Summary: DESIGN.md locked — single cobalt/navy ramp (H 251.9°, seed #0176D3, 11 steps), 56/56 WCAG AA contrast pairs pass, monochromatic (no second accent hue), explicit role→step contract, type/composition/motion held as shipped. Signature move: "cobalt means clickable" (brand-600 reserved for interactive elements; brand-800 for non-link brand text).
+
+### Phase 3: 디자인 시스템 롤아웃 스펙 (Gate: Full)
+- [x] BUILD: Discovery + design + production complete
+- [x] REVIEW: PASS
+- [x] Committed
+Commit: 4d7e65f
+Summary: Alias + component token tiers appended to DESIGN.md, plus the full old-usage → new-token mapping table across all 8 surface groups (51 files, ~350 Tailwind instances, hard-coded hex/rgba literals, stock-utility collisions). DetailPanel's `bg-brand-light` double duty split by actual meaning (4 error/destructive, 2 accent). Leadership.tsx's categorical chart re-paletted to an Okabe-Ito colorblind-safe set. LogoStrip's third-party colors logged as a kept-as-is exception. Functional colors carried over unchanged. Spec only — no component code or globals.css touched.
