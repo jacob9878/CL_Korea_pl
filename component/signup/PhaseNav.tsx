@@ -20,9 +20,6 @@ export default function PhaseNav() {
           <a href="#" className="hover:text-gray-900">
             컨소시엄 매칭
           </a>
-          <Link href="/pricing" className="hover:text-gray-900">
-            요금제
-          </Link>
         </nav>
         <div className="flex-1" />
         <Link
@@ -30,12 +27,6 @@ export default function PhaseNav() {
           className="text-gray-500 font-semibold text-[14.5px] px-4.5 py-2.5 rounded-[10px] hover:text-gray-900 transition-colors"
         >
           로그인
-        </Link>
-        <Link
-          href="/"
-          className="text-white font-semibold text-[14.5px] px-4.5 py-2.5 rounded-[10px] bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)] hover:-translate-y-px transition-transform"
-        >
-          무료로 시작하기
         </Link>
       </div>
     </header>

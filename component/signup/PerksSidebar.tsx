@@ -9,7 +9,7 @@ export default function PerksSidebar() {
     <aside className="bg-white border border-gray-200 rounded-2xl shadow-[0_1px_3px_rgba(20,23,38,.06),0_8px_24px_rgba(20,23,38,.05)]">
       <div className="p-6">
         <h2 className="text-lg font-bold tracking-tight">가입하면 이런 게 좋아요</h2>
-        <div className="text-gray-500 text-sm mb-5">Phase I 무료 제공</div>
+        <div className="text-gray-500 text-sm mb-5">Phase I 참여 혜택</div>
         {PERKS.map((p) => (
           <div key={p.title} className="flex gap-3 mb-4.5 last:mb-0">
             <div className="w-9.5 h-9.5 rounded-[10px] bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">

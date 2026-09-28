@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(lsof -ti:3000 -sTCP:LISTEN)",
+      "Bash(xargs -r ps -p)",
+      "Bash(curl -s http://localhost:3001)",
+      "Bash(curl -sv http://localhost:3001/)",
+      "Bash(curl -sv http://localhost:3000/)",
+      "Bash(npx playwright *)",
+      "Bash(node /private/tmp/claude-501/-Users-keonyoung-rndmatching/e17b3032-d120-4b54-b96a-88e6067653a0/scratchpad/shot.js)",
+      "Bash(node /Users/keonyoung/rndmatching/.tmp-shot.js)",
+      "Bash(xargs -r kill)",
+      "Bash(lsof -ti:3001 -sTCP:LISTEN)",
+      "Bash(npm uninstall *)",
+      "Bash(node /Users/keonyoung/rndmatching/.tmp-shot-ann.js)",
+      "Bash(node /Users/keonyoung/rndmatching/.tmp-shot-ann2.js)",
+      "Bash(python3 /private/tmp/claude-501/-Users-keonyoung-rndmatching/e17b3032-d120-4b54-b96a-88e6067653a0/scratchpad/verify_about.py)",
+      "Bash(node /Users/keonyoung/rndmatching/.tmp-shot-all.js)",
+      "Bash(node /Users/keonyoung/rndmatching/.tmp-shot-admin.js)",
+      "Bash(node /Users/keonyoung/rndmatching/.tmp-shot-signup.js)"
+    ]
+  }
+}
