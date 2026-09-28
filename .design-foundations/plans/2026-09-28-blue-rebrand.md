@@ -1,6 +1,6 @@
 # Plan: rndmatching Red-to-Blue Rebrand
 **Date:** 2026-09-28 · **Status:** in-progress · **Track:** Standard
-**Started:** 2026-09-28 · **Current Phase:** 2
+**Started:** 2026-09-28 · **Current Phase:** 3
 **Workspace:** worktree `.claude/worktrees/blue-rebrand` on branch `feature/blue-rebrand`
 **Seed:** `.design-foundations/research/2026-09-28-blue-rebrand.md`
 **Entry stage:** Discover (minimal — page-spec inventory of the already-shipped structure, no redesign), then Design — DNA. Full Discover (JTBD/journey mapping) is not run: IA/flows/page structure are unchanged, this is a color-only identity update.
@@ -173,3 +173,10 @@ Phase 1 and Phase 2 both depend only on the research doc and can run independent
 - [x] Committed
 Commit: a32ecaa
 Summary: JOURNEY.md written with `## Page specs` entries for all 8 surface groups (landing, about, pricing, contact, announcements, admin, shared, signup), documenting current structure as-is — no IA/flow changes.
+
+### Phase 2: DNA + 토큰 정의 (Gate: Full)
+- [x] BUILD: Discovery + design + production complete
+- [x] REVIEW: PASS (1 accepted Major — DNA base-family doctrine-traceability nit, no requirement impact)
+- [x] Committed
+Commit: 74f8ca1
+Summary: DESIGN.md locked — single cobalt/navy ramp (H 251.9°, seed #0176D3, 11 steps), 56/56 WCAG AA contrast pairs pass, monochromatic (no second accent hue), explicit role→step contract, type/composition/motion held as shipped. Signature move: "cobalt means clickable" (brand-600 reserved for interactive elements; brand-800 for non-link brand text).
