@@ -145,7 +145,7 @@ export default function HeroMockup() {
   }, []);
 
   return (
-    <div className="animate-fade-in [animation-delay:.55s]">
+    <div className="w-full min-w-0 animate-fade-in [animation-delay:.55s]">
       <div className="bg-white border border-gray-200 rounded-2xl shadow-2xl overflow-hidden">
         {/* browser bar */}
         <div className="flex items-center gap-2.5 px-3.5 py-2.5 bg-gray-50 border-b border-gray-200">
@@ -184,7 +184,7 @@ export default function HeroMockup() {
           </div>
 
           {/* main area */}
-          <div className="p-4.5 relative overflow-hidden">
+          <div className="p-4.5 relative overflow-hidden min-w-0">
             {scene === "search" && (
               <div>
                 <div className="text-[11px] font-extrabold text-gray-900 mb-2.5">파트너 검색</div>
