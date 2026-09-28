@@ -18,7 +18,7 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-100 flex items-center justify-between h-15 px-10 bg-white/92 backdrop-blur-md border-b border-gray-200">
       <Link href="/" className="text-[17px] font-extrabold text-gray-900">
-        CL<span className="text-brand">Korea</span>
+        CL<span className="text-brand-800">Korea</span>
       </Link>
       <ul className="hidden md:flex items-center gap-8 list-none">
         {NAV_LINKS.map((link) => (
@@ -27,7 +27,7 @@ export default function Nav() {
               href={link.href}
               className={
                 link.active
-                  ? "text-sm font-bold text-brand"
+                  ? "text-sm font-bold text-brand-600"
                   : "text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
               }
             >
@@ -45,7 +45,7 @@ export default function Nav() {
         </button>
         <button
           onClick={openLogin}
-          className="px-4 py-1.5 text-[13.5px] font-semibold text-white bg-brand rounded-lg hover:bg-brand-hover transition-colors cursor-pointer"
+          className="px-4 py-1.5 text-[13.5px] font-semibold text-white bg-brand-600 rounded-lg hover:bg-brand-700 transition-colors cursor-pointer"
         >
           무료 시작하기
         </button>

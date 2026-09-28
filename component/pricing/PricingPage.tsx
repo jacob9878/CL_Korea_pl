@@ -17,7 +17,7 @@ export default function PricingPage() {
       <Nav active="가격 정책" onLoginClick={open} />
 
       <div className="pt-20 pb-4 px-10 text-center">
-        <div className="text-[12.5px] font-bold text-brand uppercase tracking-wide mb-3.5">Pricing</div>
+        <div className="text-[12.5px] font-bold text-brand-800 uppercase tracking-wide mb-3.5">Pricing</div>
         <h1 className="text-[48px] font-black tracking-[-1.5px] leading-[1.12] mb-4">
           R&D 성과에 맞는
           <br />
@@ -37,7 +37,7 @@ export default function PricingPage() {
       <CompareTable />
       <Faq />
 
-      <div className="py-20 px-10 bg-brand text-center">
+      <div className="py-20 px-10 bg-brand-800 text-center">
         <h2 className="text-4xl font-black text-white tracking-[-1px] mb-3.5">지금 바로 시작하세요</h2>
         <p className="text-base text-white/80 leading-relaxed mb-8">
           14일 무료 체험으로 CL Korea의 AI 매칭을 경험해보세요.
@@ -47,7 +47,7 @@ export default function PricingPage() {
         <div className="flex justify-center gap-3">
           <button
             onClick={open}
-            className="px-7 py-3 text-[15px] font-bold text-brand bg-white rounded-[10px] hover:shadow-lg transition-shadow cursor-pointer"
+            className="px-7 py-3 text-[15px] font-bold text-brand-600 bg-white rounded-[10px] hover:shadow-lg transition-shadow cursor-pointer"
           >
             무료로 시작하기 →
           </button>

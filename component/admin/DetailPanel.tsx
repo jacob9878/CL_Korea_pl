@@ -47,7 +47,7 @@ export default function DetailPanel({
             <div className="text-[12.5px] text-gray-500 mt-1 flex gap-2 items-center flex-wrap">
               <span
                 className={`text-[10px] font-extrabold px-1.75 py-0.5 rounded-md ${
-                  kindGroup(v.kind) === "company" ? "bg-blue-50 text-blue-700" : "bg-violet-50 text-violet-700"
+                  kindGroup(v.kind) === "company" ? "bg-brand-50 text-brand-700" : "bg-gray-100 text-gray-700"
                 }`}
               >
                 {kindLabel(v.kind)} · {v.orgType}
@@ -62,7 +62,7 @@ export default function DetailPanel({
                 ? "bg-amber-50 text-amber-600"
                 : v.status === "APPROVED"
                   ? "bg-emerald-50 text-emerald-600"
-                  : "bg-brand-light text-brand"
+                  : "bg-[#fef2f0] text-red-800"
             }`}
           >
             {stLabel(v.status)}
@@ -92,7 +92,7 @@ export default function DetailPanel({
             <Section label="국세청 사업자 상태·휴폐업 조회">
               <div
                 className={`flex gap-2.75 p-3.5 rounded-[11px] text-[13px] leading-relaxed ${
-                  ntsOk ? "bg-emerald-50 border border-emerald-200 text-emerald-800" : "bg-brand-light border border-[#fecaca] text-red-800"
+                  ntsOk ? "bg-emerald-50 border border-emerald-200 text-emerald-800" : "bg-[#fef2f0] border border-[#fecaca] text-red-800"
                 }`}
               >
                 <span className="text-[17px] shrink-0">{ntsOk ? "✅" : "❌"}</span>
@@ -129,7 +129,7 @@ export default function DetailPanel({
                   </div>
                   <button
                     onClick={() => onPreviewDoc(d.file)}
-                    className="text-xs font-bold text-brand border-[1.5px] border-gray-200 rounded-lg px-3 py-1.5 bg-white hover:border-brand hover:bg-brand-light transition-colors cursor-pointer"
+                    className="text-xs font-bold text-brand-600 border-[1.5px] border-gray-200 rounded-lg px-3 py-1.5 bg-white hover:border-brand-600 hover:bg-brand-50 transition-colors cursor-pointer"
                   >
                     미리보기
                   </button>
@@ -164,12 +164,12 @@ export default function DetailPanel({
               value={reason}
               onChange={(e) => setReason(e.target.value)}
               placeholder="반려 사유 (반려 시 필수 · 신청자에게 전달됩니다)"
-              className="w-full px-3 py-2.5 border-[1.5px] border-gray-200 rounded-[9px] text-[13px] outline-none focus:border-brand resize-y min-h-10.5 mb-3"
+              className="w-full px-3 py-2.5 border-[1.5px] border-gray-200 rounded-[9px] text-[13px] outline-none focus:border-brand-600 resize-y min-h-10.5 mb-3"
             />
             <div className="flex gap-2.5">
               <button
                 onClick={() => onReject(v.id, reason)}
-                className="flex-1 py-3 rounded-[10px] text-sm font-extrabold bg-white text-brand border-[1.5px] border-[#fecaca] hover:bg-brand-light transition-colors cursor-pointer"
+                className="flex-1 py-3 rounded-[10px] text-sm font-extrabold bg-white text-red-800 border-[1.5px] border-[#fecaca] hover:bg-[#fef2f0] transition-colors cursor-pointer"
               >
                 반려
               </button>
@@ -190,7 +190,7 @@ export default function DetailPanel({
             <span className="text-gray-500 text-xs">신청자 계정에 역할이 부여되어 컨소시엄 기능이 활성화되었습니다.</span>
           </div>
         ) : (
-          <div className="rounded-xl px-4.5 py-4 text-[13px] leading-relaxed bg-brand-light border border-[#fecaca]">
+          <div className="rounded-xl px-4.5 py-4 text-[13px] leading-relaxed bg-[#fef2f0] border border-[#fecaca]">
             ❌ <b>반려</b>
             <br />
             사유: {v.rejectReason || "-"}
@@ -239,7 +239,7 @@ function RoleOption({
     <button
       onClick={() => onPick(role)}
       className={`flex-1 text-left border-[1.5px] rounded-[10px] px-3 py-2.75 bg-white transition-all cursor-pointer ${
-        active ? "border-brand bg-brand-light shadow-[0_0_0_3px_rgba(232,52,26,.07)]" : "border-gray-200 hover:border-gray-300"
+        active ? "border-brand-600 bg-brand-50 shadow-[0_0_0_3px_rgb(var(--rgb-brand-600)/.07)]" : "border-gray-200 hover:border-gray-300"
       }`}
     >
       <div className="text-[13px] font-extrabold">

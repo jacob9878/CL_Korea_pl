@@ -10,7 +10,7 @@ import ConsentSection, { type ConsentItem } from "./ConsentSection";
 import PerksSidebar from "./PerksSidebar";
 
 const INPUT =
-  "w-full font-sans text-[14.5px] px-3.25 py-2.75 border border-vline rounded-[10px] bg-[#fbfbfe] text-vink outline-none transition-colors focus:border-vbrand focus:bg-white focus:shadow-[0_0_0_3px_var(--color-vbrand-soft)]";
+  "w-full font-sans text-[14.5px] px-3.25 py-2.75 border border-gray-200 rounded-[10px] bg-[#fbfbfe] text-gray-900 outline-none transition-colors focus:border-brand-600 focus:bg-white focus:shadow-[0_0_0_3px_var(--color-brand-100)]";
 
 const CONSENT_ITEMS: ConsentItem[] = [
   {
@@ -95,21 +95,21 @@ export default function IndividualSignupPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-vbg text-vink">
+      <div className="min-h-screen bg-gray-50 text-gray-900">
         <PhaseNav />
         <div className="max-w-[720px] mx-auto px-6 py-24 text-center">
           <div className="w-16 h-16 rounded-full bg-[#eaf7f0] text-vok flex items-center justify-center text-3xl mx-auto mb-5">
             ✓
           </div>
           <h1 className="text-2xl font-extrabold mb-2.5">가입이 완료되었습니다</h1>
-          <p className="text-vmuted leading-relaxed mb-8">
+          <p className="text-gray-500 leading-relaxed mb-8">
             {companyName || "회원님"}의 관심 분야에 맞는 R&D 공고를 정리해 곧 이메일로 보내드립니다.
             <br />
             Phase II 오픈 시 컨소시엄 매칭 후보로 우선 안내해 드릴게요.
           </p>
           <a
             href="/announcements"
-            className="inline-block px-6 py-3.25 rounded-[10px] font-bold text-white bg-gradient-to-br from-vbrand to-vbrand-2 shadow-[0_6px_16px_rgba(91,91,239,.28)]"
+            className="inline-block px-6 py-3.25 rounded-[10px] font-bold text-white bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)]"
           >
             지금 바로 공고 확인하기 →
           </a>
@@ -119,17 +119,17 @@ export default function IndividualSignupPage() {
   }
 
   return (
-    <div className="min-h-screen bg-vbg text-vink">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       <PhaseNav />
 
       <section className="max-w-[1180px] mx-auto px-6 pt-11 pb-2">
-        <span className="inline-flex items-center gap-2 bg-vbrand-soft text-vbrand font-bold text-[13px] px-3 py-1.5 rounded-full">
+        <span className="inline-flex items-center gap-2 bg-brand-100 text-brand-700 font-bold text-[13px] px-3 py-1.5 rounded-full">
           ● Phase I · 회원가입
         </span>
         <h1 className="text-[34px] font-extrabold tracking-tight mt-4 mb-2.5">
           정부 R&D 공고, 우리 회사에 맞게 받아보세요
         </h1>
-        <p className="text-vmuted text-base max-w-[640px]">
+        <p className="text-gray-500 text-base max-w-[640px]">
           3분이면 가입 완료. 관심 분야만 등록하면 맞춤 공고 정렬과 정기 레터를 받아보고, 추후 컨소시엄
           구성 제안까지 연결됩니다.
         </p>
@@ -137,7 +137,7 @@ export default function IndividualSignupPage() {
       </section>
 
       <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-7 items-start py-8 pb-16">
-        <main className="bg-white border border-vline rounded-2xl shadow-[0_1px_3px_rgba(20,23,38,.06),0_8px_24px_rgba(20,23,38,.05)]">
+        <main className="bg-white border border-gray-200 rounded-2xl shadow-[0_1px_3px_rgba(20,23,38,.06),0_8px_24px_rgba(20,23,38,.05)]">
           <PhaseSteps steps={["기본·소속 정보", "전문분야 (3개)", "자료·동의"]} />
 
           <div className="p-7">
@@ -193,19 +193,19 @@ export default function IndividualSignupPage() {
                 placeholder="예) 이차전지AI, 반도체 소부장, 중기부, TIPS, 스케일업"
                 className={INPUT}
               />
-              <div className="text-[12.5px] text-vmuted mt-1.5">
+              <div className="text-[12.5px] text-gray-500 mt-1.5">
                 쉼표로 구분해 입력하면 공고 확인 화면과 레터가 이 키워드 기준으로 정렬됩니다.
               </div>
             </Field>
 
             <SectionTitle>
               전문분야 · 관심 기술분야 선택{" "}
-              <span className="ml-auto text-xs font-bold text-vmuted normal-case tracking-normal">
-                선택 <b className="text-vbrand">{picks.length}</b> / 3
+              <span className="ml-auto text-xs font-bold text-gray-500 normal-case tracking-normal">
+                선택 <b className="text-brand-800">{picks.length}</b> / 3
               </span>
             </SectionTitle>
             <TaxonomyPicker picks={picks} onChange={setPicks} max={3} />
-            <div className="text-[12.5px] text-vmuted mt-3.5">
+            <div className="text-[12.5px] text-gray-500 mt-3.5">
               최하위 세분류(또는 최하위 분류)를 클릭하면 담깁니다. 우리기업 분류할 기준이며, 맞춤 공고
               정렬·컨소시엄 매칭에 활용됩니다.
             </div>
@@ -215,19 +215,19 @@ export default function IndividualSignupPage() {
               hint="회사소개서 · 기업소개서 · 사업자등록증 (PDF, PPTX, ZIP · 최대 20MB)"
               defaultFile={{ name: "씨엘코리아_회사소개서_2026.pdf", size: "4.2MB" }}
             />
-            <div className="text-[12.5px] text-vmuted mt-1.5">
+            <div className="text-[12.5px] text-gray-500 mt-1.5">
               업로드 자료는 컨소시엄 매칭 시 파트너 기관 검토용으로 활용되며, 별도 동의 후 공개됩니다.
             </div>
 
             <SectionTitle>약관 동의</SectionTitle>
             <ConsentSection items={CONSENT_ITEMS} checked={consent} onChange={setConsent} />
 
-            <div className="border border-[#dfe0ff] bg-gradient-to-b from-[#f6f6ff] to-white rounded-xl p-4 mt-6 flex gap-3">
-              <div className="w-9.5 h-9.5 rounded-[10px] bg-vbrand text-white flex items-center justify-center shrink-0">
+            <div className="border border-[#c7e1ff] bg-gradient-to-b from-[#e6f2ff] to-white rounded-xl p-4 mt-6 flex gap-3">
+              <div className="w-9.5 h-9.5 rounded-[10px] bg-brand-600 text-white flex items-center justify-center shrink-0">
                 🤝
               </div>
               <div className="text-[13.5px]">
-                <b className="text-vbrand">왜 컨소시엄 매칭 동의가 필요한가요?</b>
+                <b className="text-brand-800">왜 컨소시엄 매칭 동의가 필요한가요?</b>
                 <br />
                 Phase II에서 AI가 공고별 최적의 컨소시엄을 구성할 때, 동의한 기업만 매칭 후보로
                 추천됩니다. 지금 동의해 두면 좋은 과제가 열렸을 때 먼저 제안을 받을 수 있어요.
@@ -235,13 +235,13 @@ export default function IndividualSignupPage() {
             </div>
           </div>
 
-          <div className="flex justify-between items-center gap-4 px-7 py-5 border-t border-vline flex-wrap">
-            <span className="text-[12.5px] text-vmuted">
+          <div className="flex justify-between items-center gap-4 px-7 py-5 border-t border-gray-200 flex-wrap">
+            <span className="text-[12.5px] text-gray-500">
               {error ? <span className="text-[#e0442f] font-semibold">{error}</span> : "가입 시 이용약관 및 개인정보처리방침에 동의하게 됩니다."}
             </span>
             <button
               onClick={submit}
-              className="px-6 py-3 rounded-[10px] font-bold text-white bg-gradient-to-br from-vbrand to-vbrand-2 shadow-[0_6px_16px_rgba(91,91,239,.28)] hover:-translate-y-px transition-transform cursor-pointer whitespace-nowrap"
+              className="px-6 py-3 rounded-[10px] font-bold text-white bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)] hover:-translate-y-px transition-transform cursor-pointer whitespace-nowrap"
             >
               가입 완료하기 →
             </button>
@@ -256,7 +256,7 @@ export default function IndividualSignupPage() {
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-2 text-[13px] font-bold text-vbrand uppercase tracking-wide mt-6.5 first:mt-1.5 mb-3.5">
+    <div className="flex items-center gap-2 text-[13px] font-bold text-brand-800 uppercase tracking-wide mt-6.5 first:mt-1.5 mb-3.5">
       {children}
     </div>
   );
@@ -274,7 +274,7 @@ function Field({
   return (
     <div className="mb-4">
       <label className="block text-[13.5px] font-semibold mb-1.75">
-        {label} {required && <span className="text-vbrand">*</span>}
+        {label} {required && <span className="text-red-600">*</span>}
       </label>
       {children}
     </div>

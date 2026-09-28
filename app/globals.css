@@ -12,22 +12,27 @@
   --font-sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
     "Malgun Gothic", sans-serif;
 
-  /* brand palette (CL Korea red) */
-  --color-brand: #e8341a;
-  --color-brand-hover: #c9280f;
-  --color-brand-light: #fef2f0;
+  /* brand ramp — cobalt/navy, monochromatic, H 251.9 (seed #0176D3)
+     see DESIGN.md for the full DNA, Role->step contract, and contrast report.
+     "cobalt means clickable": brand-600 is reserved for interactive elements
+     (links, CTAs, focus, active states); brand-800 is non-link brand text. */
+  --color-brand-50:  #f4f9ff; /* soft surface (pill, icon tile, selected row) */
+  --color-brand-100: #e6f2ff; /* soft surface, stronger (chip, active filter) */
+  --color-brand-200: #c7e1ff; /* decorative tint border */
+  --color-brand-300: #97c8ff; /* decorative only */
+  --color-brand-400: #65afff; /* decorative only */
+  --color-brand-500: #2188e8; /* data bars, dots, markers (non-text) */
+  --color-brand-600: #006cc3; /* INTERACTIVE: CTA fill, link, focus, toggle-on */
+  --color-brand-700: #0059a1; /* CTA hover/pressed, admin badge text */
+  --color-brand-800: #00437c; /* non-link brand text, full-bleed CTA bands */
+  --color-brand-900: #002e59; /* deep navy (headline accents on tint) */
+  --color-brand-950: #001b37; /* deepest navy */
 
-  /* Phase I signup palette (violet primary + orange accent) */
-  --color-vbrand: #5b5bef;
-  --color-vbrand-2: #8a63f4;
-  --color-vbrand-hover: #4a4ad8;
-  --color-vbrand-soft: #eef0ff;
-  --color-vaccent: #f59042;
+  /* rgb triple of brand-600, for alpha-composited shadows/focus halos */
+  --rgb-brand-600: 0, 108, 195;
+
+  /* functional colors — unrelated to brand, unchanged by the rebrand */
   --color-vok: #12b76a;
-  --color-vink: #141726;
-  --color-vmuted: #6b7280;
-  --color-vline: #e6e8f0;
-  --color-vbg: #f7f8fc;
 
   --animate-fade-up: fade-up 0.55s ease both;
   --animate-fade-in: fade-in 0.7s ease both;

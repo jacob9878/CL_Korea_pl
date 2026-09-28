@@ -46,22 +46,22 @@ function Card({
       href={href}
       className={`relative block border-[1.5px] rounded-2xl px-5 py-4.5 bg-white transition-all ${
         on
-          ? "border-vbrand bg-gradient-to-b from-[#f7f7ff] to-white shadow-[0_6px_18px_rgba(91,91,239,.12)]"
-          : "border-vline hover:border-[#c9cbe0]"
+          ? "border-brand-600 bg-gradient-to-b from-[#e6f2ff] to-white shadow-[0_6px_18px_rgb(var(--rgb-brand-600)/.12)]"
+          : "border-gray-200 hover:border-[#c7e1ff]"
       }`}
     >
       {on && (
-        <span className="absolute top-4 right-4 text-[11px] font-bold text-white bg-vbrand px-2.25 py-0.75 rounded-md">
+        <span className="absolute top-4 right-4 text-[11px] font-bold text-white bg-brand-600 px-2.25 py-0.75 rounded-md">
           선택됨
         </span>
       )}
       <div className="flex items-center gap-2.5 font-extrabold text-base">
-        <span className="w-9.5 h-9.5 rounded-[10px] bg-vbrand-soft text-vbrand flex items-center justify-center text-lg shrink-0">
+        <span className="w-9.5 h-9.5 rounded-[10px] bg-brand-100 text-brand-700 flex items-center justify-center text-lg shrink-0">
           {icon}
         </span>
         {title}
       </div>
-      <p className="text-[13px] text-vmuted mt-2 leading-relaxed">{desc}</p>
+      <p className="text-[13px] text-gray-500 mt-2 leading-relaxed">{desc}</p>
     </Link>
   );
 }

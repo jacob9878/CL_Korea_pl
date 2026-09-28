@@ -95,9 +95,9 @@ export default function TaxonomyPicker({
 
   return (
     <div>
-      <div className="bg-[#f1f3f7] border border-vline rounded-xl px-4 py-3.5 flex items-center gap-2.5 flex-wrap">
+      <div className="bg-[#f1f3f7] border border-gray-200 rounded-xl px-4 py-3.5 flex items-center gap-2.5 flex-wrap">
         <span className="text-[17px] text-gray-600">🔍</span>
-        <span className="text-[13px] font-bold text-gray-700 whitespace-nowrap before:content-['▪_'] before:text-vaccent">
+        <span className="text-[13px] font-bold text-gray-700 whitespace-nowrap before:content-['▪_'] before:text-brand-500">
           키워드
         </span>
         <span className="flex-1 min-w-40">
@@ -111,10 +111,10 @@ export default function TaxonomyPicker({
               }
             }}
             placeholder="예) 인공지능, 반도체, 이차전지 (전체 분류에서 검색)"
-            className="w-full bg-white text-[14.5px] px-3 py-2.5 border border-vline rounded-[10px] outline-none focus:border-vbrand"
+            className="w-full bg-white text-[14.5px] px-3 py-2.5 border border-gray-200 rounded-[10px] outline-none focus:border-brand-600"
           />
         </span>
-        <span className="text-[13px] font-bold text-gray-700 whitespace-nowrap before:content-['▪_'] before:text-vaccent">
+        <span className="text-[13px] font-bold text-gray-700 whitespace-nowrap before:content-['▪_'] before:text-brand-500">
           조회조건
         </span>
         <select
@@ -124,7 +124,7 @@ export default function TaxonomyPicker({
             setAppliedKw("");
             setKwInput("");
           }}
-          className="min-w-32 text-sm px-3 py-2.5 border border-vline rounded-[10px] bg-white"
+          className="min-w-32 text-sm px-3 py-2.5 border border-gray-200 rounded-[10px] bg-white"
         >
           {groupKeys.map((g) => (
             <option key={g}>{g}</option>
@@ -140,10 +140,10 @@ export default function TaxonomyPicker({
       </div>
 
       <div className="flex items-center gap-2.5 mt-4.5 mb-2.5">
-        <span className="w-6 h-1.25 rounded bg-vaccent" />
+        <span className="w-6 h-1.25 rounded bg-brand-500" />
         <h3 className="text-lg font-extrabold tracking-tight">{title}</h3>
         <span className="ml-auto text-[12.5px] font-bold text-gray-500">
-          선택 <b className="text-vbrand">{picks.length}</b> / {max}
+          선택 <b className="text-brand-800">{picks.length}</b> / {max}
         </span>
       </div>
 
@@ -152,13 +152,13 @@ export default function TaxonomyPicker({
           <table className="w-full border-collapse text-[13.5px] min-w-[640px]">
             <thead>
               <tr>
-                <th className="sticky top-0 bg-[#f4f5f8] text-gray-700 font-bold text-[13.5px] text-center py-3 px-2 border-b border-[#d7dae4] border-r border-vline w-1/5">
+                <th className="sticky top-0 bg-[#f4f5f8] text-gray-700 font-bold text-[13.5px] text-center py-3 px-2 border-b border-[#d7dae4] border-r border-gray-200 w-1/5">
                   대분류
                 </th>
-                <th className="sticky top-0 bg-[#f4f5f8] text-gray-700 font-bold text-[13.5px] text-center py-3 px-2 border-b border-[#d7dae4] border-r border-vline w-[23%]">
+                <th className="sticky top-0 bg-[#f4f5f8] text-gray-700 font-bold text-[13.5px] text-center py-3 px-2 border-b border-[#d7dae4] border-r border-gray-200 w-[23%]">
                   중분류
                 </th>
-                <th className="sticky top-0 bg-[#f4f5f8] text-gray-700 font-bold text-[13.5px] text-center py-3 px-2 border-b border-[#d7dae4] border-r border-vline w-1/4">
+                <th className="sticky top-0 bg-[#f4f5f8] text-gray-700 font-bold text-[13.5px] text-center py-3 px-2 border-b border-[#d7dae4] border-r border-gray-200 w-1/4">
                   소분류
                 </th>
                 <th className="sticky top-0 bg-[#f4f5f8] text-gray-700 font-bold text-[13.5px] text-center py-3 px-2 border-b border-[#d7dae4] w-[32%]">
@@ -178,7 +178,7 @@ export default function TaxonomyPicker({
                   const key = keyOf(r);
                   const picked = isPicked(key);
                   return (
-                    <tr key={i} className={picked && !r[3] ? "bg-[#f2f2ff]" : ""}>
+                    <tr key={i} className={picked && !r[3] ? "bg-[#e6f2ff]" : ""}>
                       {isFirst(rows, i, 0) && (
                         <td
                           rowSpan={spanCount(rows, i, 0)}
@@ -245,12 +245,12 @@ export default function TaxonomyPicker({
             <div
               key={i}
               className={`flex items-center gap-2.5 border rounded-[10px] px-3.25 py-2.75 min-h-13.5 ${
-                p ? "border-solid border-[#dfe0ff] bg-gradient-to-b from-[#f7f7ff] to-white" : "border-dashed border-[#c9cbe0] bg-white"
+                p ? "border-solid border-[#c7e1ff] bg-gradient-to-b from-[#e6f2ff] to-white" : "border-dashed border-[#c7e1ff] bg-white"
               }`}
             >
               <span
                 className={`w-5.5 h-5.5 rounded-full flex items-center justify-center font-extrabold text-[11px] shrink-0 ${
-                  p ? "bg-vbrand text-white" : "bg-vbrand-soft text-vbrand"
+                  p ? "bg-brand-600 text-white" : "bg-brand-100 text-brand-700"
                 }`}
               >
                 {i + 1}
@@ -288,13 +288,13 @@ function Leaf({ picked, label, onClick }: { picked: boolean; label: string; onCl
   return (
     <span
       onClick={onClick}
-      className={`inline-flex items-center gap-2 cursor-pointer font-semibold rounded-md px-1.75 py-1 transition-colors hover:bg-vbrand-soft hover:text-vbrand ${
-        picked ? "text-vbrand" : "text-vink"
+      className={`inline-flex items-center gap-2 cursor-pointer font-semibold rounded-md px-1.75 py-1 transition-colors hover:bg-brand-100 hover:text-brand-600 ${
+        picked ? "text-brand-600" : "text-gray-900"
       }`}
     >
       <span
         className={`w-4 h-4 rounded flex items-center justify-center text-[10px] text-white shrink-0 border-[1.5px] ${
-          picked ? "bg-vbrand border-vbrand" : "border-gray-300"
+          picked ? "bg-brand-600 border-brand-600" : "border-gray-300"
         }`}
       >
         {picked ? "✓" : ""}

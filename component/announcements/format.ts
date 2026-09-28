@@ -10,7 +10,7 @@ export function computeDday(end?: string): number | null {
 }
 
 export function ddCls(d: number) {
-  return d < 0 ? "text-gray-400" : d <= 5 ? "text-brand" : d <= 15 ? "text-amber-600" : "text-emerald-700";
+  return d < 0 ? "text-gray-400" : d <= 5 ? "text-brand-800" : d <= 15 ? "text-amber-600" : "text-emerald-700";
 }
 
 export function ddTxt(d: number) {

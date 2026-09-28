@@ -23,7 +23,7 @@ export default function Team() {
     <section className="py-22 px-10 bg-gray-50">
       <div className="max-w-[1040px] mx-auto">
         <Reveal>
-          <div className="text-[12.5px] font-bold text-brand uppercase tracking-wide mb-3.5">Team</div>
+          <div className="text-[12.5px] font-bold text-brand-800 uppercase tracking-wide mb-3.5">Team</div>
           <h2 className="text-[32px] font-black tracking-[-1px] mb-3">팀 소개</h2>
           <p className="text-base text-gray-500 leading-relaxed mb-14 max-w-[560px]">
             R&D 정책, AI 기술, 사업 개발 전문가들이 함께합니다.
@@ -38,7 +38,7 @@ export default function Team() {
                 </div>
                 <div className="px-5 py-6">
                   <h3 className="text-base font-extrabold mb-1">{m.name}</h3>
-                  <div className="text-[12.5px] font-bold text-brand mb-2.5">{m.role}</div>
+                  <div className="text-[12.5px] font-bold text-brand-800 mb-2.5">{m.role}</div>
                   <p className="text-[13px] text-gray-500 leading-relaxed">{m.desc}</p>
                 </div>
               </div>

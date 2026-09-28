@@ -17,7 +17,7 @@ const CARDS = [
             className="flex items-center justify-between text-[10px] text-gray-700 px-2 py-1.5 bg-white rounded-md border border-gray-200"
           >
             <span>{row.label}</span>
-            <span className="font-bold text-brand">{row.score}</span>
+            <span className="font-bold text-brand-800">{row.score}</span>
           </div>
         ))}
       </div>
@@ -29,13 +29,13 @@ const CARDS = [
     desc: "NTIS·KIPRIS 데이터로 최적 파트너를 추천합니다. 기술 역량, 재무 건전성, R&D 이력을 종합 평가합니다.",
     ui: (
       <div className="flex flex-wrap gap-1.5">
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-brand-light text-brand border border-[#fbd5ce]">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-brand-50 text-brand-800 border border-brand-200">
           소재기업 ✓
         </span>
         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
           재무 안정 ✓
         </span>
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-gray-100 text-gray-700 border border-gray-200">
           과제 12건 ✓
         </span>
         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
@@ -51,9 +51,9 @@ const CARDS = [
     ui: (
       <div className="flex flex-col gap-1.5">
         {[
-          { label: "특허 역량", value: 82, color: "bg-brand", num: "text-brand" },
+          { label: "특허 역량", value: 82, color: "bg-brand-500", num: "text-brand-800" },
           { label: "R&D 이력", value: 91, color: "bg-emerald-500", num: "text-emerald-500" },
-          { label: "재무 건전성", value: 76, color: "bg-brand", num: "text-brand" },
+          { label: "재무 건전성", value: 76, color: "bg-brand-500", num: "text-brand-800" },
         ].map((bar) => (
           <div key={bar.label} className="flex items-center gap-2">
             <span className="text-[9.5px] text-gray-500 min-w-16">{bar.label}</span>
@@ -101,11 +101,11 @@ const CARDS = [
     ui: (
       <div>
         <div className="flex items-baseline gap-1.5 mb-1.5">
-          <span className="text-[22px] font-black text-brand">78점</span>
+          <span className="text-[22px] font-black text-brand-800">78점</span>
           <span className="text-[10px] text-emerald-500 font-bold">→ 91점 예측</span>
         </div>
         <div className="bg-gray-200 rounded-full h-1.25 overflow-hidden">
-          <div className="w-[78%] h-full bg-brand rounded-full" />
+          <div className="w-[78%] h-full bg-brand-500 rounded-full" />
         </div>
       </div>
     ),
@@ -118,7 +118,7 @@ const CARDS = [
       <div className="flex flex-col gap-1">
         <div className="text-[10px] text-gray-500">연구개발계획서 초안</div>
         <div className="h-1 bg-gray-200 rounded-full overflow-hidden">
-          <div className="w-[68%] h-full bg-brand rounded-full" />
+          <div className="w-[68%] h-full bg-brand-500 rounded-full" />
         </div>
         <div className="text-[9.5px] text-gray-400">68% 완성 · 나머지 항목 AI 작성 중</div>
       </div>
@@ -131,7 +131,7 @@ export default function HowItWorks() {
     <section id="how" className="py-24 px-10 bg-white">
       <div className="max-w-[1160px] mx-auto">
         <Reveal>
-          <div className="text-[12.5px] font-bold text-brand uppercase tracking-wide mb-3">
+          <div className="text-[12.5px] font-bold text-brand-800 uppercase tracking-wide mb-3">
             핵심 기능
           </div>
           <h2 className="text-[40px] font-black leading-[1.15] tracking-[-1px] text-gray-900 mb-4">
@@ -148,7 +148,7 @@ export default function HowItWorks() {
             <Reveal key={card.title}>
               <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all hover:shadow-lg hover:-translate-y-0.5 h-full">
                 <div className="p-5 pb-0">
-                  <div className="w-9 h-9 rounded-[10px] bg-brand-light flex items-center justify-center text-lg mb-3.5">
+                  <div className="w-9 h-9 rounded-[10px] bg-brand-50 flex items-center justify-center text-lg mb-3.5">
                     {card.icon}
                   </div>
                   <div className="text-[15px] font-extrabold text-gray-900 mb-1.5">{card.title}</div>

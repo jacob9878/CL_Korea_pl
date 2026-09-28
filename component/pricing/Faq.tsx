@@ -43,7 +43,7 @@ export default function Faq() {
                 {f.q}
                 <span
                   className={`w-5.5 h-5.5 rounded-full border-[1.5px] flex items-center justify-center text-base leading-none shrink-0 transition-all ${
-                    isOpen ? "rotate-45 border-brand text-brand" : "border-gray-200 text-gray-400"
+                    isOpen ? "rotate-45 border-brand-600 text-brand-600" : "border-gray-200 text-gray-400"
                   }`}
                 >
                   +

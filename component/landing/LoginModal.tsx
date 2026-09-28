@@ -29,7 +29,7 @@ export default function LoginModal() {
           ×
         </span>
         <div className="text-xl font-black text-gray-900 text-center mb-1.5">
-          CL<span className="text-brand">Korea</span>
+          CL<span className="text-brand-800">Korea</span>
         </div>
         <div className="text-[13.5px] text-gray-500 text-center mb-7">
           AI 기반 R&D 컨소시엄 매칭 플랫폼의 실제 검색을 체험합니다
@@ -43,7 +43,7 @@ export default function LoginModal() {
             type="email"
             placeholder="contact@company.com"
             defaultValue="demo@clkorea.ai"
-            className="w-full px-3.5 py-2.5 border-[1.5px] border-gray-200 rounded-[10px] text-sm outline-none focus:border-brand focus:shadow-[0_0_0_3px_rgba(232,52,26,.08)]"
+            className="w-full px-3.5 py-2.5 border-[1.5px] border-gray-200 rounded-[10px] text-sm outline-none focus:border-brand-600 focus:shadow-[0_0_0_3px_rgb(var(--rgb-brand-600)/.08)]"
           />
         </div>
         <div className="mb-3.5">
@@ -53,13 +53,13 @@ export default function LoginModal() {
           <input
             type="password"
             defaultValue="••••••••"
-            className="w-full px-3.5 py-2.5 border-[1.5px] border-gray-200 rounded-[10px] text-sm outline-none focus:border-brand focus:shadow-[0_0_0_3px_rgba(232,52,26,.08)]"
+            className="w-full px-3.5 py-2.5 border-[1.5px] border-gray-200 rounded-[10px] text-sm outline-none focus:border-brand-600 focus:shadow-[0_0_0_3px_rgb(var(--rgb-brand-600)/.08)]"
           />
         </div>
 
         <button
           onClick={closeLogin}
-          className="w-full py-3 bg-brand text-white rounded-[10px] text-[15px] font-bold mt-1.5 hover:bg-brand-hover transition-colors cursor-pointer"
+          className="w-full py-3 bg-brand-600 text-white rounded-[10px] text-[15px] font-bold mt-1.5 hover:bg-brand-700 transition-colors cursor-pointer"
         >
           로그인
         </button>
@@ -81,7 +81,7 @@ export default function LoginModal() {
 
         <div className="text-center mt-4.5 text-[13px] text-gray-500">
           아직 계정이 없으신가요?{" "}
-          <a href="/signup" className="text-brand font-bold">
+          <a href="/signup" className="text-brand-600 font-bold underline">
             회원가입
           </a>
         </div>

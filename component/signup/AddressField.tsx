@@ -22,7 +22,7 @@ type DaumPostcodeData = {
 };
 
 const INPUT =
-  "w-full font-sans text-[14.5px] px-3.25 py-2.75 border border-vline rounded-[10px] bg-[#fbfbfe] text-vink outline-none transition-colors focus:border-vbrand focus:bg-white focus:shadow-[0_0_0_3px_var(--color-vbrand-soft)]";
+  "w-full font-sans text-[14.5px] px-3.25 py-2.75 border border-gray-200 rounded-[10px] bg-[#fbfbfe] text-gray-900 outline-none transition-colors focus:border-brand-600 focus:bg-white focus:shadow-[0_0_0_3px_var(--color-brand-100)]";
 
 export default function AddressField({
   zip,
@@ -64,7 +64,7 @@ export default function AddressField({
         onLoad={() => setReady(true)}
       />
       <label className="block text-[13.5px] font-semibold mb-1.75">
-        현재주소 <span className="text-vbrand">*</span>
+        현재주소 <span className="text-red-600">*</span>
       </label>
       <div className="flex gap-2.5 mb-2.5">
         <input readOnly value={zip} placeholder="우편번호" className={`${INPUT} max-w-38`} />

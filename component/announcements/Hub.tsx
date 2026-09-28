@@ -41,7 +41,7 @@ export default function Hub() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 mt-6.5">
-        <Kpi dot="bg-brand" label="접수중 공고" value={`${total}건`} desc={`${activeDepts}개 부처`} />
+        <Kpi dot="bg-brand-500" label="접수중 공고" value={`${total}건`} desc={`${activeDepts}개 부처`} />
         <Kpi dot="bg-amber-500" label="마감 임박 (D-5 이내)" value={`${closing}건`} desc="서둘러 확인하세요" />
         <Kpi
           dot="bg-yellow-400"
@@ -81,7 +81,7 @@ export default function Hub() {
               <div className="mt-auto pt-3.5 flex items-center justify-between">
                 {clickable ? (
                   <div className="text-[13px] font-extrabold text-gray-900">
-                    <span className="text-brand">{cnt}</span>건 접수중
+                    <span className="text-brand-800">{cnt}</span>건 접수중
                   </div>
                 ) : (
                   <div className="text-[13px] font-semibold text-gray-400">접수중 공고 없음</div>
@@ -122,7 +122,7 @@ export default function Hub() {
                 <div className="text-[13px] font-extrabold text-gray-900">
                   {open > 0 ? (
                     <>
-                      <span className="text-brand">{open}</span>건 접수중
+                      <span className="text-brand-800">{open}</span>건 접수중
                     </>
                   ) : (
                     <span className="text-gray-400 font-semibold">전체 {city.items.length}건</span>

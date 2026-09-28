@@ -14,7 +14,7 @@ export default function AuditLog({ audit }: { audit: AuditEntry[] }) {
             <div key={i} className="flex gap-2.5 px-4 py-2.75 border-b border-gray-100 last:border-0 text-xs items-start">
               <span
                 className={`text-[10px] font-extrabold px-1.75 py-0.5 rounded-md shrink-0 ${
-                  a.action === "APPROVE" ? "bg-emerald-50 text-emerald-600" : "bg-brand-light text-brand"
+                  a.action === "APPROVE" ? "bg-emerald-50 text-emerald-600" : "bg-[#fef2f0] text-red-800"
                 }`}
               >
                 {a.action === "APPROVE" ? "승인" : "반려"}

@@ -8,9 +8,9 @@ const PRICES = {
 };
 
 const CHECK = (
-  <span className="w-4.25 h-4.25 rounded-full bg-brand-light flex items-center justify-center shrink-0 mt-0.5">
+  <span className="w-4.25 h-4.25 rounded-full bg-brand-50 flex items-center justify-center shrink-0 mt-0.5">
     <svg width="9" height="8" viewBox="0 0 10 8" fill="none">
-      <polyline points="1,4 3.5,7 9,1" stroke="var(--color-brand)" strokeWidth="2.5" fill="none" />
+      <polyline points="1,4 3.5,7 9,1" stroke="var(--color-brand-800)" strokeWidth="2.5" fill="none" />
     </svg>
   </span>
 );
@@ -25,7 +25,7 @@ export default function PlanCards({ onLoginClick }: { onLoginClick: () => void }
         <span className={`text-sm font-semibold ${!annual ? "text-gray-900" : "text-gray-500"}`}>월간 결제</span>
         <button
           onClick={() => setAnnual((a) => !a)}
-          className={`relative w-11 h-6 rounded-full transition-colors cursor-pointer ${annual ? "bg-brand" : "bg-gray-200"}`}
+          className={`relative w-11 h-6 rounded-full transition-colors cursor-pointer ${annual ? "bg-brand-600" : "bg-gray-200"}`}
         >
           <span
             className={`absolute w-4.5 h-4.5 bg-white rounded-full top-0.75 shadow transition-transform ${
@@ -34,7 +34,7 @@ export default function PlanCards({ onLoginClick }: { onLoginClick: () => void }
           />
         </button>
         <span className={`text-sm font-semibold ${annual ? "text-gray-900" : "text-gray-500"}`}>연간 결제</span>
-        <span className="inline-flex items-center px-2 py-0.5 bg-brand-light text-brand text-[11.5px] font-bold rounded-full border border-[#fbd5ce]">
+        <span className="inline-flex items-center px-2 py-0.5 bg-brand-50 text-brand-800 text-[11.5px] font-bold rounded-full border border-brand-200">
           2개월 무료
         </span>
       </div>
@@ -66,8 +66,8 @@ export default function PlanCards({ onLoginClick }: { onLoginClick: () => void }
         </div>
 
         {/* STANDARD */}
-        <div className="relative bg-white border-2 border-brand rounded-2xl p-8">
-          <div className="absolute -top-3.25 left-1/2 -translate-x-1/2 bg-brand text-white text-[11.5px] font-bold px-3.5 py-0.75 rounded-full whitespace-nowrap">
+        <div className="relative bg-white border-2 border-brand-600 rounded-2xl p-8">
+          <div className="absolute -top-3.25 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[11.5px] font-bold px-3.5 py-0.75 rounded-full whitespace-nowrap">
             가장 인기
           </div>
           <div className="text-[13px] font-bold text-gray-500 uppercase tracking-wide mb-2.5">스탠다드</div>
@@ -81,7 +81,7 @@ export default function PlanCards({ onLoginClick }: { onLoginClick: () => void }
           <div className="h-px bg-gray-200 mb-5.5" />
           <button
             onClick={onLoginClick}
-            className="w-full py-2.75 text-sm font-bold text-white bg-brand rounded-[10px] mb-6 hover:bg-brand-hover transition-colors cursor-pointer"
+            className="w-full py-2.75 text-sm font-bold text-white bg-brand-600 rounded-[10px] mb-6 hover:bg-brand-700 transition-colors cursor-pointer"
           >
             14일 무료 체험
           </button>

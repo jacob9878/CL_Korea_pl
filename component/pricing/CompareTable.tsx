@@ -39,7 +39,7 @@ const GROUPS: { title: string; rows: [string, Cell, Cell, Cell][] }[] = [
 ];
 
 function CellValue({ v }: { v: Cell }) {
-  if (v === "y") return <span className="text-brand text-base font-extrabold">✓</span>;
+  if (v === "y") return <span className="text-brand-800 text-base font-extrabold">✓</span>;
   if (v === "n") return <span className="text-gray-300 text-base">–</span>;
   return <span>{v}</span>;
 }
@@ -55,7 +55,7 @@ export default function CompareTable() {
               <tr>
                 <th className="text-left text-gray-500 font-semibold text-[13px] px-5 py-4.5 border-b border-gray-200">기능</th>
                 <th className="text-center text-gray-700 text-[13px] font-bold px-5 py-4.5 border-b border-gray-200">무료</th>
-                <th className="text-center text-brand text-[13px] font-bold px-5 py-4.5 border-b border-gray-200">스탠다드</th>
+                <th className="text-center text-brand-800 text-[13px] font-bold px-5 py-4.5 border-b border-gray-200">스탠다드</th>
                 <th className="text-center text-gray-700 text-[13px] font-bold px-5 py-4.5 border-b border-gray-200">프로</th>
               </tr>
             </thead>

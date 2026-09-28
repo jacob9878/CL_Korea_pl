@@ -91,7 +91,7 @@ export default function AnnouncementTable({ deptKey }: { deptKey?: string }) {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 mt-5.5">
-        <Kpi dot="bg-brand" label="해당 공고" value={`${scoped.length}건`} desc="IRIS 수집" />
+        <Kpi dot="bg-brand-500" label="해당 공고" value={`${scoped.length}건`} desc="IRIS 수집" />
         <Kpi dot="bg-amber-500" label="마감 임박" value={`${closingCount}건`} desc="D-5 이내" />
         <Kpi dot="bg-yellow-400" label="관심 등록" value={`${favCount}건`} desc="☆ 저장" />
         <Kpi
@@ -208,14 +208,14 @@ export default function AnnouncementTable({ deptKey }: { deptKey?: string }) {
                       <Link
                         href={`/announcements/notice/${item.ancmId}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="hover:text-brand"
+                        className="hover:text-brand-600"
                       >
                         {item.title}
                       </Link>
                     </td>
                     {isAll && (
                       <td className="px-3.5 py-3.5">
-                        <span className="inline-block text-[11.5px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 whitespace-nowrap">
+                        <span className="inline-block text-[11.5px] font-bold px-2 py-0.5 rounded-md bg-gray-100 text-gray-700 whitespace-nowrap">
                           {item.dept}
                         </span>
                       </td>

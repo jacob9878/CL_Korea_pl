@@ -6,7 +6,7 @@ export default function CtaSection() {
   const { openLogin } = useLoginModal();
 
   return (
-    <div className="py-24 px-10 bg-brand text-center">
+    <div className="py-24 px-10 bg-brand-800 text-center">
       <div className="max-w-[640px] mx-auto">
         <h2 className="text-[40px] font-black text-white leading-[1.15] tracking-[-1px] mb-4">
           지금 바로 시작하세요
@@ -17,7 +17,7 @@ export default function CtaSection() {
         <div className="flex justify-center gap-3">
           <button
             onClick={openLogin}
-            className="px-7 py-3 text-[15px] font-bold text-brand bg-white rounded-[10px] cursor-pointer hover:shadow-lg transition-shadow"
+            className="px-7 py-3 text-[15px] font-bold text-brand-600 bg-white rounded-[10px] cursor-pointer hover:shadow-lg transition-shadow"
           >
             무료로 시작하기 →
           </button>

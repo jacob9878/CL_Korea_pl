@@ -3,7 +3,7 @@
 import { useState, type ReactNode } from "react";
 
 const INPUT_CLASS =
-  "w-full px-3.5 py-2.5 border-[1.5px] border-gray-200 rounded-[10px] text-sm outline-none transition-all focus:border-brand focus:shadow-[0_0_0_3px_rgba(232,52,26,.08)]";
+  "w-full px-3.5 py-2.5 border-[1.5px] border-gray-200 rounded-[10px] text-sm outline-none transition-all focus:border-brand-600 focus:shadow-[0_0_0_3px_rgb(var(--rgb-brand-600)/0.08)]";
 
 const TABS = [
   { key: "demo", label: "📅 데모 신청", placeholder: "데모에서 특히 확인하고 싶은 기능이나 궁금한 점을 알려주세요.", showRd: true },
@@ -142,10 +142,10 @@ export default function ContactForm() {
                 className={`${INPUT_CLASS} resize-y min-h-30 leading-relaxed`}
               />
             </Field>
-            {error && <p className="text-[12.5px] text-brand mb-3">{error}</p>}
+            {error && <p className="text-[12.5px] text-red-600 mb-3">{error}</p>}
             <button
               onClick={submit}
-              className="w-full py-3.25 bg-brand text-white text-[15px] font-bold rounded-[10px] mt-1 hover:bg-brand-hover transition-colors cursor-pointer"
+              className="w-full py-3.25 bg-brand-600 text-white text-[15px] font-bold rounded-[10px] mt-1 hover:bg-brand-700 transition-colors cursor-pointer"
             >
               문의 제출하기 →
             </button>
@@ -156,7 +156,7 @@ export default function ContactForm() {
           </div>
         ) : (
           <div className="text-center py-12 px-6">
-            <div className="w-14 h-14 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">
+            <div className="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">
               ✅
             </div>
             <div className="text-xl font-extrabold mb-2.5">문의가 접수되었습니다!</div>
@@ -170,7 +170,7 @@ export default function ContactForm() {
             </p>
             <button
               onClick={reset}
-              className="mt-7 py-3.25 px-6 bg-brand text-white text-[15px] font-bold rounded-[10px] hover:bg-brand-hover transition-colors cursor-pointer"
+              className="mt-7 py-3.25 px-6 bg-brand-600 text-white text-[15px] font-bold rounded-[10px] hover:bg-brand-700 transition-colors cursor-pointer"
             >
               새 문의 작성
             </button>
@@ -195,7 +195,7 @@ function Field({
   return (
     <div className={className}>
       <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.75">
-        {label} {required && <span className="text-brand">*</span>}
+        {label} {required && <span className="text-red-600">*</span>}
       </label>
       {children}
     </div>

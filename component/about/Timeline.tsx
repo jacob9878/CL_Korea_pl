@@ -33,7 +33,7 @@ export default function Timeline() {
     <section className="py-22 px-10">
       <div className="max-w-[1040px] mx-auto">
         <Reveal>
-          <div className="text-[12.5px] font-bold text-brand uppercase tracking-wide mb-3.5">History</div>
+          <div className="text-[12.5px] font-bold text-brand-800 uppercase tracking-wide mb-3.5">History</div>
           <h2 className="text-[32px] font-black tracking-[-1px] mb-3">연혁</h2>
           <p className="text-base text-gray-500 leading-relaxed mb-14 max-w-[560px]">
             CL Korea의 성장 여정입니다.
@@ -46,13 +46,13 @@ export default function Timeline() {
               <div className="flex gap-7 mb-9 relative">
                 <div
                   className={`w-12.5 h-12.5 rounded-full bg-white border-2 flex items-center justify-center text-[11px] font-bold shrink-0 z-1 ${
-                    t.highlight ? "border-brand text-brand" : "border-gray-200 text-gray-500"
+                    t.highlight ? "border-brand-600 text-brand-800" : "border-gray-200 text-gray-500"
                   }`}
                 >
                   {t.year}
                 </div>
                 <div className="pt-3">
-                  <div className="inline-block text-[11px] font-bold text-brand bg-brand-light rounded-full px-2.5 py-0.5 mb-1.5">
+                  <div className="inline-block text-[11px] font-bold text-brand-800 bg-brand-50 rounded-full px-2.5 py-0.5 mb-1.5">
                     {t.badge}
                   </div>
                   <h3 className="text-[15px] font-bold mb-1">{t.title}</h3>

@@ -23,7 +23,7 @@ export default function Problem() {
     <section className="py-22 px-10 bg-gray-50">
       <div className="max-w-[1040px] mx-auto">
         <Reveal>
-          <div className="text-[12.5px] font-bold text-brand uppercase tracking-wide mb-3.5">Problem</div>
+          <div className="text-[12.5px] font-bold text-brand-800 uppercase tracking-wide mb-3.5">Problem</div>
           <h2 className="text-[32px] font-black tracking-[-1px] mb-3">우리가 해결하는 문제</h2>
           <p className="text-base text-gray-500 leading-relaxed mb-14 max-w-[560px]">
             정부 R&D 컨소시엄 구성은 여전히 사람이 직접 발로 뛰는 방식에 의존합니다.
@@ -41,7 +41,7 @@ export default function Problem() {
           ))}
         </div>
         <Reveal>
-          <div className="text-center text-[15px] font-bold text-brand pt-2">
+          <div className="text-center text-[15px] font-bold text-brand-800 pt-2">
             → CL Korea는 이 문제를 AI로 해결합니다
           </div>
         </Reveal>

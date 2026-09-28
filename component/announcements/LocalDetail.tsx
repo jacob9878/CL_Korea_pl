@@ -119,7 +119,7 @@ export default function LocalDetail({ city, idx }: { city: string; idx: number }
                     href={f.url || item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-2.5 px-3.5 py-2.75 bg-gray-50 border border-gray-200 rounded-[10px] text-[12.5px] font-semibold text-gray-700 leading-snug hover:border-brand hover:text-brand hover:bg-white transition-colors"
+                    className="flex items-start gap-2.5 px-3.5 py-2.75 bg-gray-50 border border-gray-200 rounded-[10px] text-[12.5px] font-semibold text-gray-700 leading-snug hover:border-brand-600 hover:text-brand-600 hover:bg-white transition-colors"
                   >
                     <span>📎</span>
                     <span>{f.name}</span>
@@ -132,7 +132,7 @@ export default function LocalDetail({ city, idx }: { city: string; idx: number }
           </div>
           <Link
             href="/signup"
-            className="flex items-center justify-center gap-1.75 w-full py-2.75 text-[13.5px] font-bold rounded-[10px] bg-brand text-white hover:bg-brand-hover transition-colors"
+            className="flex items-center justify-center gap-1.75 w-full py-2.75 text-[13.5px] font-bold rounded-[10px] bg-brand-600 text-white hover:bg-brand-700 transition-colors"
           >
             이 공고로 컨소시엄 매칭 →
           </Link>
@@ -164,7 +164,7 @@ export default function LocalDetail({ city, idx }: { city: string; idx: number }
                 <Link
                   key={r.title}
                   href={`/announcements/local/${encodeURIComponent(cd.name)}/${rIdx}`}
-                  className="block p-3.5 border border-gray-200 rounded-[10px] hover:border-[#fbd5ce] transition-colors"
+                  className="block p-3.5 border border-gray-200 rounded-[10px] hover:border-brand-200 transition-colors"
                 >
                   <span className={`inline-block text-[11.5px] font-bold px-2.5 py-0.5 rounded-full border ${rb.cls}`}>
                     {rb.label}

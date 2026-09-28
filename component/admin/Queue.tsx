@@ -55,7 +55,7 @@ export default function Queue({
             onClick={() => onKindFilter(key)}
             className={`text-[11.5px] font-bold px-2.75 py-1.25 rounded-full border-[1.5px] transition-colors cursor-pointer ${
               kindFilter === key
-                ? "border-brand bg-brand-light text-brand"
+                ? "border-brand-600 bg-brand-50 text-brand-600"
                 : "border-gray-200 text-gray-600 hover:border-gray-300"
             }`}
           >
@@ -77,7 +77,7 @@ export default function Queue({
             onClick={() => onStatusFilter(key)}
             className={`text-[11.5px] font-bold px-2.75 py-1.25 rounded-full border-[1.5px] transition-colors cursor-pointer ${
               statusFilter === key
-                ? "border-brand bg-brand-light text-brand"
+                ? "border-brand-600 bg-brand-50 text-brand-600"
                 : "border-gray-200 text-gray-600 hover:border-gray-300"
             }`}
           >
@@ -90,7 +90,7 @@ export default function Queue({
           value={query}
           onChange={(e) => onQuery(e.target.value)}
           placeholder="기관명·이메일 검색"
-          className="w-full px-2.75 py-2 border-[1.5px] border-gray-200 rounded-[9px] text-[13px] outline-none focus:border-brand"
+          className="w-full px-2.75 py-2 border-[1.5px] border-gray-200 rounded-[9px] text-[13px] outline-none focus:border-brand-600"
         />
       </div>
       <div className="max-h-[560px] overflow-y-auto">
@@ -105,7 +105,7 @@ export default function Queue({
                 key={v.id}
                 onClick={() => onSelect(v.id)}
                 className={`px-4 py-3.25 border-b border-gray-100 cursor-pointer flex gap-2.5 items-start transition-colors ${
-                  selected ? "bg-brand-light shadow-[inset_3px_0_0_var(--color-brand)]" : "hover:bg-gray-50"
+                  selected ? "bg-brand-50 shadow-[inset_3px_0_0_var(--color-brand-600)]" : "hover:bg-gray-50"
                 }`}
               >
                 <div className="flex-1 min-w-0">
@@ -115,7 +115,7 @@ export default function Queue({
                     </span>
                     <span
                       className={`text-[10px] font-extrabold px-1.75 py-0.5 rounded-md whitespace-nowrap ${
-                        grp === "company" ? "bg-blue-50 text-blue-700" : "bg-violet-50 text-violet-700"
+                        grp === "company" ? "bg-brand-50 text-brand-700" : "bg-gray-100 text-gray-700"
                       }`}
                     >
                       {kindLabel(v.kind)}
@@ -132,7 +132,7 @@ export default function Queue({
                       ? "bg-amber-50 text-amber-600"
                       : v.status === "APPROVED"
                         ? "bg-emerald-50 text-emerald-600"
-                        : "bg-brand-light text-brand"
+                        : "bg-[#fef2f0] text-red-800"
                   }`}
                 >
                   {stLabel(v.status)}

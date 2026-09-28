@@ -46,7 +46,7 @@ export default function LocalTable({ city }: { city: string }) {
           <h1 className="text-[26px] font-black tracking-[-.5px]">{cd.name} 지역사업 공고</h1>
           <p className="mt-1.5 text-[15px] text-gray-500">
             {cd.source}에서 수집한 공고입니다.{" "}
-            <a href={cd.url} target="_blank" rel="noopener noreferrer" className="text-brand font-semibold">
+            <a href={cd.url} target="_blank" rel="noopener noreferrer" className="text-brand-600 font-semibold">
               포털 바로가기 →
             </a>
           </p>
@@ -145,7 +145,7 @@ export default function LocalTable({ city }: { city: string }) {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1 text-xs font-bold text-gray-600 border border-gray-200 rounded-md px-2 py-1 hover:border-brand hover:text-brand transition-colors"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-gray-600 border border-gray-200 rounded-md px-2 py-1 hover:border-brand-600 hover:text-brand-600 transition-colors"
                         >
                           🔗 원문
                         </a>

@@ -1,10 +1,10 @@
 import Reveal from "./Reveal";
 
 const DEPT_PIPELINE = [
-  { label: "산업통상자원부", value: 75, count: "3건", color: "#e8341a" },
-  { label: "과학기술정보통신부", value: 50, count: "2건", color: "#1d4ed8" },
-  { label: "중소벤처기업부", value: 50, count: "2건", color: "#059669" },
-  { label: "환경부", value: 25, count: "1건", color: "#7c3aed" },
+  { label: "산업통상자원부", value: 75, count: "3건", color: "#D55E00" },
+  { label: "과학기술정보통신부", value: 50, count: "2건", color: "#CC79A7" },
+  { label: "중소벤처기업부", value: 50, count: "2건", color: "#009E73" },
+  { label: "환경부", value: 25, count: "1건", color: "#E69F00" },
 ];
 
 export default function Leadership() {
@@ -12,7 +12,7 @@ export default function Leadership() {
     <section className="py-24 px-10 bg-gray-50">
       <div className="max-w-[1160px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <Reveal>
-          <div className="text-[12.5px] font-bold text-brand uppercase tracking-wide mb-3">
+          <div className="text-[12.5px] font-bold text-brand-800 uppercase tracking-wide mb-3">
             기관 대표·연구실장용
           </div>
           <h2 className="text-[36px] font-black leading-[1.15] tracking-[-1px] text-gray-900 mb-5">
@@ -32,7 +32,7 @@ export default function Leadership() {
               "팀원별 업무 현황 및 마감일 관리",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                <span className="text-brand font-extrabold mt-px">✓</span>
+                <span className="text-brand-800 font-extrabold mt-px">✓</span>
                 {item}
               </li>
             ))}
@@ -56,7 +56,7 @@ export default function Leadership() {
                     key={kpi.label}
                     className="bg-gray-50 border border-gray-200 rounded-lg py-3 px-2.5 text-center"
                   >
-                    <div className="text-lg font-black text-brand mb-0.5">{kpi.num}</div>
+                    <div className="text-lg font-black text-brand-800 mb-0.5">{kpi.num}</div>
                     <div className="text-[9.5px] text-gray-400">{kpi.label}</div>
                   </div>
                 ))}

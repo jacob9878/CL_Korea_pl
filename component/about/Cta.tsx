@@ -1,6 +1,6 @@
 export default function Cta({ onLoginClick }: { onLoginClick: () => void }) {
   return (
-    <section className="py-22 px-10 bg-brand text-center">
+    <section className="py-22 px-10 bg-brand-800 text-center">
       <h2 className="text-[36px] font-black text-white tracking-[-1px] mb-4">
         지금 바로 파트너를 찾아보세요
       </h2>
@@ -12,7 +12,7 @@ export default function Cta({ onLoginClick }: { onLoginClick: () => void }) {
       <div className="flex justify-center gap-3.5">
         <button
           onClick={onLoginClick}
-          className="px-7 py-3.5 text-[15px] font-bold text-brand bg-white rounded-[10px] cursor-pointer hover:opacity-90 transition-opacity"
+          className="px-7 py-3.5 text-[15px] font-bold text-brand-600 bg-white rounded-[10px] cursor-pointer hover:opacity-90 transition-opacity"
         >
           무료로 시작하기
         </button>

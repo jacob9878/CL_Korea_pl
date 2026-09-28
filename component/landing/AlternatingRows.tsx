@@ -28,7 +28,7 @@ export default function AlternatingRows() {
     <section id="services" className="py-24 px-10 bg-gray-50">
       <div className="max-w-[1160px] mx-auto">
         <Reveal className="text-center mb-16">
-          <div className="text-[12.5px] font-bold text-brand uppercase tracking-wide mb-3">
+          <div className="text-[12.5px] font-bold text-brand-800 uppercase tracking-wide mb-3">
             플랫폼이 특별한 이유
           </div>
           <h2 className="text-[40px] font-black leading-[1.15] tracking-[-1px] text-gray-900">
@@ -42,7 +42,7 @@ export default function AlternatingRows() {
         <Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-16 border-b border-gray-200">
             <div>
-              <div className="text-xs font-bold text-brand tracking-wide uppercase mb-2.5">
+              <div className="text-xs font-bold text-brand-800 tracking-wide uppercase mb-2.5">
                 실시간 데이터 연동
               </div>
               <h3 className="text-[30px] font-black text-gray-900 tracking-[-.7px] leading-tight mb-3.5">
@@ -61,7 +61,7 @@ export default function AlternatingRows() {
                   "NTIS 과제 이력 12년치 분석",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="text-brand font-extrabold mt-px">✓</span>
+                    <span className="text-brand-800 font-extrabold mt-px">✓</span>
                     {item}
                   </li>
                 ))}
@@ -70,7 +70,7 @@ export default function AlternatingRows() {
             <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md">
               <div className="flex items-center gap-1.5 px-4 py-3 bg-gray-50 border-b border-gray-200 text-[11.5px] font-bold text-gray-700">
                 <span>📡 데이터 연동 현황</span>
-                <span className="ml-auto text-[9px] px-1.5 py-0.5 rounded-full bg-brand-light text-brand border border-[#fbd5ce]">
+                <span className="ml-auto text-[9px] px-1.5 py-0.5 rounded-full bg-brand-50 text-brand-800 border border-brand-200">
                   실시간
                 </span>
               </div>
@@ -88,7 +88,7 @@ export default function AlternatingRows() {
         <Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-16 border-b border-gray-200">
             <div className="lg:order-2">
-              <div className="text-xs font-bold text-brand tracking-wide uppercase mb-2.5">
+              <div className="text-xs font-bold text-brand-800 tracking-wide uppercase mb-2.5">
                 AI 매칭 알고리즘
               </div>
               <h3 className="text-[30px] font-black text-gray-900 tracking-[-.7px] leading-tight mb-3.5">
@@ -107,7 +107,7 @@ export default function AlternatingRows() {
                   "약점 항목 보완 방안 자동 제시",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="text-brand font-extrabold mt-px">✓</span>
+                    <span className="text-brand-800 font-extrabold mt-px">✓</span>
                     {item}
                   </li>
                 ))}
@@ -120,11 +120,11 @@ export default function AlternatingRows() {
               <div className="p-4">
                 <div className="text-[11px] font-bold text-gray-700 mb-1.5">역할 구성 최적도</div>
                 <div className="flex flex-col gap-1.5 mb-3">
-                  <MiniBar label="주관 역량" value={91} colorClass="bg-brand" numClass="text-brand" />
+                  <MiniBar label="주관 역량" value={91} colorClass="bg-brand-500" numClass="text-brand-800" />
                   <MiniBar label="협업 이력" value={84} colorClass="bg-emerald-500" numClass="text-emerald-500" />
                   <MiniBar label="우대가점 비율" value={62} colorClass="bg-amber-500" numClass="text-amber-600" />
                 </div>
-                <div className="bg-brand-light border border-[#fbd5ce] rounded-md px-2.5 py-2 text-[10.5px] text-brand">
+                <div className="bg-brand-50 border border-brand-200 rounded-md px-2.5 py-2 text-[10.5px] text-brand-800">
                   💡 우대 기관 1개 추가 시 선정 확률 +13% 예상
                 </div>
               </div>
@@ -136,7 +136,7 @@ export default function AlternatingRows() {
         <Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-16">
             <div>
-              <div className="text-xs font-bold text-brand tracking-wide uppercase mb-2.5">
+              <div className="text-xs font-bold text-brand-800 tracking-wide uppercase mb-2.5">
                 자동화된 제안서
               </div>
               <h3 className="text-[30px] font-black text-gray-900 tracking-[-.7px] leading-tight mb-3.5">
@@ -155,7 +155,7 @@ export default function AlternatingRows() {
                   "부처 양식에 맞는 포맷 적용",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="text-brand font-extrabold mt-px">✓</span>
+                    <span className="text-brand-800 font-extrabold mt-px">✓</span>
                     {item}
                   </li>
                 ))}
@@ -184,7 +184,7 @@ export default function AlternatingRows() {
                             ? "text-emerald-500 font-bold"
                             : row.pct === 0
                               ? "text-gray-400"
-                              : "text-brand font-bold"
+                              : "text-brand-800 font-bold"
                         }
                       >
                         {row.status}
@@ -192,7 +192,7 @@ export default function AlternatingRows() {
                     </div>
                     <div className="h-1 bg-gray-200 rounded-full overflow-hidden">
                       <div
-                        className={`h-full rounded-full ${row.pct === 100 ? "bg-emerald-500" : "bg-brand"}`}
+                        className={`h-full rounded-full ${row.pct === 100 ? "bg-emerald-500" : "bg-brand-500"}`}
                         style={{ width: `${row.pct}%` }}
                       />
                     </div>

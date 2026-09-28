@@ -23,7 +23,7 @@ export default function Values() {
     <section className="py-22 px-10">
       <div className="max-w-[1040px] mx-auto">
         <Reveal>
-          <div className="text-[12.5px] font-bold text-brand uppercase tracking-wide mb-3.5">Core Values</div>
+          <div className="text-[12.5px] font-bold text-brand-800 uppercase tracking-wide mb-3.5">Core Values</div>
           <h2 className="text-[32px] font-black tracking-[-1px] mb-3">핵심 가치</h2>
           <p className="text-base text-gray-500 leading-relaxed mb-14 max-w-[560px]">
             CL Korea가 추구하는 세 가지 원칙입니다.
@@ -33,7 +33,7 @@ export default function Values() {
           {VALUES.map((v) => (
             <Reveal key={v.title}>
               <div className="border border-gray-200 rounded-2xl p-8 h-full hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-[22px] mb-4.5">
+                <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-[22px] mb-4.5">
                   {v.icon}
                 </div>
                 <h3 className="text-base font-extrabold mb-2.5">{v.title}</h3>

@@ -167,7 +167,7 @@ export default function HeroMockup() {
           {/* sidebar */}
           <div className="bg-gray-50 border-r border-gray-200 p-2.5 flex flex-col gap-0.5">
             <div className="text-[11px] font-extrabold text-gray-900 px-2 pb-3 pt-1">
-              CL<span className="text-brand">K</span>
+              CL<span className="text-brand-800">K</span>
             </div>
             {SIDEBAR_ITEMS.map((item) => (
               <div
@@ -213,7 +213,7 @@ export default function HeroMockup() {
                       <div className="font-bold text-gray-900 text-[11px]">{r.name}</div>
                       <div className="text-gray-400 text-[10px] mt-0.5">{r.sub}</div>
                     </div>
-                    <div className="text-xs font-extrabold text-brand">{r.score}%</div>
+                    <div className="text-xs font-extrabold text-brand-800">{r.score}%</div>
                   </div>
                 ))}
               </div>
@@ -237,7 +237,7 @@ export default function HeroMockup() {
                         profileShown[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
                       }`}
                     >
-                      <div className="w-5.5 h-5.5 rounded-full bg-brand-light flex items-center justify-center text-[10px] shrink-0">
+                      <div className="w-5.5 h-5.5 rounded-full bg-brand-50 flex items-center justify-center text-[10px] shrink-0">
                         {i === 4 ? "✨" : "📄"}
                       </div>
                       <div>
@@ -307,7 +307,7 @@ export default function HeroMockup() {
                   컨소시엄 성공률 분석
                 </div>
                 <div className="flex items-baseline gap-1.5 mb-3.5">
-                  <div className="text-4xl font-black text-brand leading-none">{score}</div>
+                  <div className="text-4xl font-black text-brand-600 leading-none">{score}</div>
                   <div className="text-xs text-gray-500">
                     / 100점&nbsp;
                     <span className="text-emerald-500 font-bold text-[11px]">→ 91점 예측</span>
@@ -315,7 +315,7 @@ export default function HeroMockup() {
                 </div>
                 <div className="bg-gray-100 rounded-full h-1.5 overflow-hidden mb-3.5">
                   <div
-                    className="h-full bg-brand rounded-full transition-[width] duration-1000"
+                    className="h-full bg-brand-500 rounded-full transition-[width] duration-1000"
                     style={{ width: `${score}%` }}
                   />
                 </div>

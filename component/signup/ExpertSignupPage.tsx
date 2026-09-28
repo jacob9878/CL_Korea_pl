@@ -9,7 +9,7 @@ import AddressField from "./AddressField";
 import ConsentSection, { type ConsentItem } from "./ConsentSection";
 
 const INPUT =
-  "w-full font-sans text-[14.5px] px-3.25 py-2.75 border border-vline rounded-[10px] bg-[#fbfbfe] text-vink outline-none transition-colors focus:border-vbrand focus:bg-white focus:shadow-[0_0_0_3px_var(--color-vbrand-soft)]";
+  "w-full font-sans text-[14.5px] px-3.25 py-2.75 border border-gray-200 rounded-[10px] bg-[#fbfbfe] text-gray-900 outline-none transition-colors focus:border-brand-600 focus:bg-white focus:shadow-[0_0_0_3px_var(--color-brand-100)]";
 
 const DEGREES = ["박사", "박사수료", "석사", "학사", "기타"];
 
@@ -118,14 +118,14 @@ export default function ExpertSignupPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-vbg text-vink">
+      <div className="min-h-screen bg-gray-50 text-gray-900">
         <PhaseNav />
         <div className="max-w-[720px] mx-auto px-6 py-24 text-center">
           <div className="w-16 h-16 rounded-full bg-[#eaf7f0] text-vok flex items-center justify-center text-3xl mx-auto mb-5">
             ✓
           </div>
           <h1 className="text-2xl font-extrabold mb-2.5">전문가 등록 신청이 접수되었습니다</h1>
-          <p className="text-vmuted leading-relaxed mb-8">
+          <p className="text-gray-500 leading-relaxed mb-8">
             제출하신 전문분야·경력을 바탕으로 자격 검토를 진행합니다.
             <br />
             심사 승인되면 이메일로 안내드리며, 이후 과제 평가·자문·컨소시엄 매칭 요청을 받아보실 수
@@ -133,7 +133,7 @@ export default function ExpertSignupPage() {
           </p>
           <a
             href="/announcements"
-            className="inline-block px-6 py-3.25 rounded-[10px] font-bold text-white bg-gradient-to-br from-vbrand to-vbrand-2 shadow-[0_6px_16px_rgba(91,91,239,.28)]"
+            className="inline-block px-6 py-3.25 rounded-[10px] font-bold text-white bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)]"
           >
             공고 확인하러 가기 →
           </a>
@@ -143,17 +143,17 @@ export default function ExpertSignupPage() {
   }
 
   return (
-    <div className="min-h-screen bg-vbg text-vink">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       <PhaseNav />
 
       <section className="max-w-[1120px] mx-auto px-6 pt-10 pb-2">
-        <span className="inline-flex items-center gap-2 bg-vbrand-soft text-vbrand font-bold text-[13px] px-3 py-1.5 rounded-full">
+        <span className="inline-flex items-center gap-2 bg-brand-100 text-brand-700 font-bold text-[13px] px-3 py-1.5 rounded-full">
           ● Phase I · 회원가입
         </span>
         <h1 className="text-[32px] font-extrabold tracking-tight mt-4 mb-2.5">
           어떤 자격으로 가입하시나요?
         </h1>
-        <p className="text-vmuted text-base max-w-[660px]">
+        <p className="text-gray-500 text-base max-w-[660px]">
           개인 회원으로 맞춤 공고를 받아보거나, 전문가(평가·자문위원)로 등록해 컨소시엄과 과제 평가에
           참여할 수 있습니다.
         </p>
@@ -161,7 +161,7 @@ export default function ExpertSignupPage() {
       </section>
 
       <div className="max-w-[1120px] mx-auto px-6 py-8 pb-16">
-        <div className="bg-white border border-vline rounded-2xl shadow-[0_1px_3px_rgba(20,23,38,.06),0_8px_24px_rgba(20,23,38,.05)]">
+        <div className="bg-white border border-gray-200 rounded-2xl shadow-[0_1px_3px_rgba(20,23,38,.06),0_8px_24px_rgba(20,23,38,.05)]">
           <PhaseSteps steps={["기본·소속 정보", "전문분야 (3개)", "경력·동의"]} />
 
           <div className="p-7">
@@ -196,12 +196,12 @@ export default function ExpertSignupPage() {
 
             <SectionTitle>
               전문분야 선택{" "}
-              <span className="ml-auto text-xs font-bold text-vmuted normal-case tracking-normal">
-                선택 <b className="text-vbrand">{picks.length}</b> / 3 (필수)
+              <span className="ml-auto text-xs font-bold text-gray-500 normal-case tracking-normal">
+                선택 <b className="text-brand-800">{picks.length}</b> / 3 (필수)
               </span>
             </SectionTitle>
             <TaxonomyPicker picks={picks} onChange={setPicks} max={3} />
-            <div className="text-[12.5px] text-vmuted mt-3.5">
+            <div className="text-[12.5px] text-gray-500 mt-3.5">
               최하위 세분류(또는 최하위 분류)를 클릭하면 전문분야로 담깁니다. 우선기업이 분류한(대·중·소·세분류)
               기준이며, 전문분야는 과제 심사위원 매칭에 활용됩니다.
             </div>
@@ -243,8 +243,8 @@ export default function ExpertSignupPage() {
             <ConsentSection items={CONSENT_ITEMS} checked={consent} onChange={setConsent} />
           </div>
 
-          <div className="flex justify-between items-center gap-4 px-7 py-5 border-t border-vline flex-wrap">
-            <span className="text-[12.5px] text-vmuted">
+          <div className="flex justify-between items-center gap-4 px-7 py-5 border-t border-gray-200 flex-wrap">
+            <span className="text-[12.5px] text-gray-500">
               {error ? (
                 <span className="text-[#e0442f] font-semibold">{error}</span>
               ) : (
@@ -253,7 +253,7 @@ export default function ExpertSignupPage() {
             </span>
             <button
               onClick={submit}
-              className="px-6 py-3 rounded-[10px] font-bold text-white bg-gradient-to-br from-vbrand to-vbrand-2 shadow-[0_6px_16px_rgba(91,91,239,.28)] hover:-translate-y-px transition-transform cursor-pointer whitespace-nowrap"
+              className="px-6 py-3 rounded-[10px] font-bold text-white bg-gradient-to-br from-brand-600 to-brand-700 shadow-[0_6px_16px_rgb(var(--rgb-brand-600)/.28)] hover:-translate-y-px transition-transform cursor-pointer whitespace-nowrap"
             >
               전문가 등록 신청 →
             </button>
@@ -266,7 +266,7 @@ export default function ExpertSignupPage() {
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-2 text-[13px] font-bold text-vbrand uppercase tracking-wide mt-6.5 first:mt-1.5 mb-3.5">
+    <div className="flex items-center gap-2 text-[13px] font-bold text-brand-800 uppercase tracking-wide mt-6.5 first:mt-1.5 mb-3.5">
       {children}
     </div>
   );
@@ -276,7 +276,7 @@ function Field({ label, required, children }: { label: string; required?: boolea
   return (
     <div className="mb-4">
       <label className="block text-[13.5px] font-semibold mb-1.75">
-        {label} {required && <span className="text-vbrand">*</span>}
+        {label} {required && <span className="text-red-600">*</span>}
       </label>
       {children}
     </div>

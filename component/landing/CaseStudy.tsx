@@ -23,7 +23,7 @@ export default function CaseStudy() {
     <div className="bg-[#0a0a0a] py-24 px-10">
       <div className="max-w-[1160px] mx-auto">
         <Reveal>
-          <div className="text-xs font-bold text-brand uppercase tracking-wide mb-3">성과 지표</div>
+          <div className="text-xs font-bold text-brand-800 uppercase tracking-wide mb-3">성과 지표</div>
           <h2 className="text-[40px] font-black text-white leading-[1.15] tracking-[-1px] max-w-[700px] mb-5">
             도입 기관의 실제 성과 데이터
           </h2>
@@ -35,7 +35,7 @@ export default function CaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[2px] border border-gray-800 rounded-2xl overflow-hidden">
             {STATS.map((stat) => (
               <div key={stat.label} className="p-9 bg-gray-900 hover:bg-gray-800 transition-colors">
-                <div className="text-[44px] font-black text-brand tracking-[-1.5px] leading-none mb-2.5">
+                <div className="text-[44px] font-black text-brand-600 tracking-[-1.5px] leading-none mb-2.5">
                   {stat.num}
                 </div>
                 <div className="text-[15px] font-bold text-white mb-1.5">{stat.label}</div>

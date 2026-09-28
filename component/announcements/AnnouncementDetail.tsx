@@ -43,7 +43,7 @@ export default function AnnouncementDetail({ id }: { id: string }) {
           <div className="flex gap-2 flex-wrap">
             <Badge>🏛️ {item.gov}</Badge>
             <Badge className={badge.cls}>{badge.label}</Badge>
-            {dday >= 0 && <Badge className="bg-brand-light text-brand border-[#fbd5ce]">{ddTxt(dday)}</Badge>}
+            {dday >= 0 && <Badge className="bg-brand-50 text-brand-700 border-brand-200">{ddTxt(dday)}</Badge>}
             <Badge className="bg-gray-100 text-gray-600 border-gray-200">{item.type}</Badge>
           </div>
           <h1 className="mt-3.5 text-2xl font-black tracking-[-.6px] leading-snug">{item.title}</h1>
@@ -70,7 +70,7 @@ export default function AnnouncementDetail({ id }: { id: string }) {
                 "접수 마감"
               ) : (
                 <>
-                  마감까지 <b className="text-brand">{dday === 0 ? "오늘" : `${dday}일`}</b>
+                  마감까지 <b className="text-brand-800">{dday === 0 ? "오늘" : `${dday}일`}</b>
                 </>
               )}
             </span>
@@ -114,7 +114,7 @@ export default function AnnouncementDetail({ id }: { id: string }) {
                     href={item.irisUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-2.5 px-3.5 py-2.75 bg-gray-50 border border-gray-200 rounded-[10px] text-[12.5px] font-semibold text-gray-700 leading-snug hover:border-brand hover:text-brand hover:bg-white transition-colors"
+                    className="flex items-start gap-2.5 px-3.5 py-2.75 bg-gray-50 border border-gray-200 rounded-[10px] text-[12.5px] font-semibold text-gray-700 leading-snug hover:border-brand-600 hover:text-brand-600 hover:bg-white transition-colors"
                   >
                     <span>📎</span>
                     <span>
@@ -129,7 +129,7 @@ export default function AnnouncementDetail({ id }: { id: string }) {
           </div>
           <Link
             href="/signup"
-            className="flex items-center justify-center gap-1.75 w-full py-2.75 text-[13.5px] font-bold rounded-[10px] bg-brand text-white hover:bg-brand-hover transition-colors"
+            className="flex items-center justify-center gap-1.75 w-full py-2.75 text-[13.5px] font-bold rounded-[10px] bg-brand-600 text-white hover:bg-brand-700 transition-colors"
           >
             이 공고로 컨소시엄 매칭 →
           </Link>
@@ -163,7 +163,7 @@ export default function AnnouncementDetail({ id }: { id: string }) {
                 <Link
                   key={r.ancmId}
                   href={`/announcements/notice/${r.ancmId}`}
-                  className="block p-3.5 border border-gray-200 rounded-[10px] hover:border-[#fbd5ce] transition-colors"
+                  className="block p-3.5 border border-gray-200 rounded-[10px] hover:border-brand-200 transition-colors"
                 >
                   <Badge className={rb.cls}>{rb.label}</Badge>
                   <div className="mt-2 text-[13px] font-bold leading-snug">{r.title}</div>

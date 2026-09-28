@@ -22,7 +22,7 @@ export default function Stats() {
           {STATS.map((s) => (
             <Reveal key={s.label}>
               <div className="bg-white/6 border border-white/10 rounded-2xl py-8 px-6 text-center h-full">
-                <div className="text-[36px] font-black text-brand tracking-[-1px] mb-1.5">{s.num}</div>
+                <div className="text-[36px] font-black text-brand-800 tracking-[-1px] mb-1.5">{s.num}</div>
                 <div className="text-[13px] text-white/60">{s.label}</div>
               </div>
             </Reveal>

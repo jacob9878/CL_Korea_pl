@@ -20,7 +20,7 @@ export default function StatsRow({ verifications }: { verifications: Verificatio
         <div className="text-xs text-gray-500 mt-0.75 font-semibold">승인</div>
       </div>
       <div className="bg-white border border-gray-200 rounded-xl px-4.5 py-4">
-        <div className="text-2xl font-black tracking-[-1px] text-brand">{rejected}</div>
+        <div className="text-2xl font-black tracking-[-1px] text-red-800">{rejected}</div>
         <div className="text-xs text-gray-500 mt-0.75 font-semibold">반려</div>
       </div>
     </div>

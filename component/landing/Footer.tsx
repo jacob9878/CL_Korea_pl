@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 pb-10 border-b border-gray-800 mb-8">
           <div>
             <div className="text-[17px] font-black text-white mb-3">
-              CL<span className="text-brand">Korea</span>
+              CL<span className="text-brand-800">Korea</span>
             </div>
             <p className="text-[13px] text-gray-500 leading-relaxed">
               AI 기반 정부 R&D 컨소시엄
