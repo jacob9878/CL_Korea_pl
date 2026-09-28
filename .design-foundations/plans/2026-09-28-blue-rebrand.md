@@ -1,5 +1,7 @@
 # Plan: rndmatching Red-to-Blue Rebrand
-**Date:** 2026-09-28 · **Status:** confirmed · **Track:** Standard
+**Date:** 2026-09-28 · **Status:** in-progress · **Track:** Standard
+**Started:** 2026-09-28 · **Current Phase:** 1
+**Workspace:** worktree `.claude/worktrees/blue-rebrand` on branch `feature/blue-rebrand`
 **Seed:** `.design-foundations/research/2026-09-28-blue-rebrand.md`
 **Entry stage:** Discover (minimal — page-spec inventory of the already-shipped structure, no redesign), then Design — DNA. Full Discover (JTBD/journey mapping) is not run: IA/flows/page structure are unchanged, this is a color-only identity update.
 
