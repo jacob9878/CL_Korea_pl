@@ -154,7 +154,7 @@ export default function HeroMockup() {
             <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e] block" />
             <span className="w-2.5 h-2.5 rounded-full bg-[#28c840] block" />
           </div>
-          <div className="flex-1 bg-white border border-gray-200 rounded-md px-2.5 py-1 text-[11.5px] text-gray-500 flex items-center gap-1.5">
+          <div className="flex-1 min-w-0 bg-white border border-gray-200 rounded-md px-2.5 py-1 text-[11.5px] text-gray-500 flex items-center gap-1.5">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2.5">
               <rect x="3" y="11" width="18" height="11" rx="2" />
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
