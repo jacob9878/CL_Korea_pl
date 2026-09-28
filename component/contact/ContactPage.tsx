@@ -22,7 +22,7 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div className="max-w-[1060px] mx-auto px-10 pb-24 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-14 items-start">
+      <div className="w-full max-w-[1060px] mx-auto px-10 pb-24 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-14 items-start">
         <ContactForm />
         <InfoSidebar />
       </div>

@@ -24,7 +24,7 @@ export default function Hub() {
   const localTotal = LOCAL_CITIES.reduce((sum, c) => sum + c.items.length, 0);
 
   return (
-    <main className="max-w-[1360px] mx-auto px-8 pt-11 pb-24">
+    <main className="w-full max-w-[1360px] mx-auto px-8 pt-11 pb-24">
       <div className="text-[12.5px] font-bold text-gray-400 uppercase tracking-wide mb-2.5">
         Business Announcements
       </div>

@@ -25,7 +25,7 @@ export default function AnnouncementDetail({ id }: { id: string }) {
   const related = ITEMS.filter((x) => x.dept === item.dept && x.ancmId !== item.ancmId).slice(0, 4);
 
   return (
-    <main className="max-w-[1360px] mx-auto px-8 pt-11 pb-24">
+    <main className="w-full max-w-[1360px] mx-auto px-8 pt-11 pb-24">
       <div className="flex items-center gap-2 text-[13px] text-gray-500 mb-5.5 flex-wrap">
         <Link href="/announcements" className="hover:text-gray-900">
           사업공고

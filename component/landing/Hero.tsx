@@ -7,7 +7,7 @@ export default function Hero() {
   const { openLogin } = useLoginModal();
 
   return (
-    <section className="max-w-[1280px] mx-auto px-10 pt-20 grid grid-cols-1 lg:grid-cols-[420px_minmax(0,1fr)] gap-14 items-start">
+    <section className="w-full max-w-[1280px] mx-auto px-10 pt-20 grid grid-cols-1 lg:grid-cols-[420px_minmax(0,1fr)] gap-14 items-start">
       <div>
         <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-50 text-brand-800 text-[12.5px] font-semibold rounded-full border border-brand-200 animate-fade-up [animation-delay:.1s]">
           <span className="relative w-1.5 h-1.5 bg-brand-500 rounded-full">
