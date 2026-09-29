@@ -1,6 +1,19 @@
-import Link from "next/link";
+"use client";
 
-export default function Nav({ onReset }: { onReset: () => void }) {
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
+
+export default function Nav({ adminName }: { adminName: string }) {
+  const router = useRouter();
+
+  async function signOut() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.replace("/");
+    router.refresh();
+  }
+
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between h-14.5 px-7 bg-white border-b border-gray-200">
       <Link href="/" className="text-[17px] font-extrabold flex items-center gap-2.5">
@@ -13,14 +26,14 @@ export default function Nav({ onReset }: { onReset: () => void }) {
         <Link href="/" className="font-semibold text-gray-600 hover:text-brand-600">
           ← 메인으로
         </Link>
-        <button onClick={onReset} className="bg-transparent border-none text-gray-400 text-xs cursor-pointer hover:text-gray-600">
-          데모 초기화
+        <button onClick={signOut} className="bg-transparent border-none text-gray-400 text-xs cursor-pointer hover:text-gray-600">
+          로그아웃
         </button>
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-full bg-gray-900 text-white flex items-center justify-center text-xs font-extrabold">
-            A
+            {adminName.charAt(0)}
           </div>
-          <span>이운영(admin)</span>
+          <span>{adminName}</span>
         </div>
       </div>
     </nav>

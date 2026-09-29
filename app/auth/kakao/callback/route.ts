@@ -30,12 +30,16 @@ export async function GET(request: Request) {
     }),
   });
 
+  const tokenBody = await tokenRes.json().catch(() => null);
+
   if (!tokenRes.ok) {
+    console.error("[kakao callback] token exchange failed", tokenRes.status, tokenBody);
     return NextResponse.redirect(`${origin}/auth/auth-code-error`);
   }
 
-  const { id_token } = (await tokenRes.json()) as { id_token?: string };
+  const id_token = tokenBody?.id_token as string | undefined;
   if (!id_token) {
+    console.error("[kakao callback] no id_token in response", tokenBody);
     return NextResponse.redirect(`${origin}/auth/auth-code-error`);
   }
 
@@ -46,6 +50,7 @@ export async function GET(request: Request) {
   });
 
   if (error) {
+    console.error("[kakao callback] signInWithIdToken failed", error.message, error);
     return NextResponse.redirect(`${origin}/auth/auth-code-error`);
   }
 

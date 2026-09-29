@@ -41,6 +41,13 @@ export type Database = {
         }
         Relationships: [
           {
+            foreignKeyName: "audit_log_actor_fkey"
+            columns: ["actor"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "audit_log_application_id_fkey"
             columns: ["application_id"]
             isOneToOne: false
@@ -160,7 +167,15 @@ export type Database = {
           user_id?: string
           years?: number
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "expert_applications_reviewed_by_fkey"
+            columns: ["reviewed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       individual_signup_taxonomy_picks: {
         Row: {
